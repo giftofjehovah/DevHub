@@ -5,7 +5,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost:27017/devhub')
-
+// add code here
 app.use(logger('dev'))
 
 app.set('views', path.join(__dirname, 'views'))
