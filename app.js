@@ -4,7 +4,10 @@ const path = require('path')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/devhub')
+const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
+const port = process.env.PORT || 3000
+mongoose.connect(mongoUri)
+app.listen(port)
 // add code here
 app.use(logger('dev'))
 
@@ -16,5 +19,3 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
-
-app.listen(3000)
