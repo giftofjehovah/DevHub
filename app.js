@@ -17,5 +17,5 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res) {
-  res.send('Hello World')
+  res.status(200).send('Hello World')
 })
