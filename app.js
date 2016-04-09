@@ -7,7 +7,9 @@ const mongoose = require('mongoose')
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
 mongoose.connect(mongoUri)
-app.listen(port)
+app.listen(port, function () {
+  console.log(`server listening on port ${port}`)
+})
 
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
