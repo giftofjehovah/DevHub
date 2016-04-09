@@ -13,4 +13,8 @@ app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
 app.listen(3000)
