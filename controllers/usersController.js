@@ -50,10 +50,10 @@ function githubCallback (req, res) {
   // gitHubCallback(req, res)
 }
 
-// Restricted page
-function getUser (req, res) {
-  res.render('user', {message: req.flash('errorMessage')})
-}
+// Restricted page - OWN PROFILE
+// function getUser (req, res) {
+//   res.render('user', {message: req.flash('errorMessage')})
+// }
 
 module.exports = {
   getLogin: getLogin,
@@ -61,7 +61,7 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  getUser: getUser,
+  // getUser: getUser,
   getGithubLogin: getGithubLogin,
   githubCallback: githubCallback
 }

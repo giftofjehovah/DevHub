@@ -68,7 +68,7 @@ module.exports = function (passport) {
     callbackURL: 'http://localhost:3000/auth/github/callback'
   },
     function (access_token, refresh_token, profile, done) {
-      User.findOne({ 'github.id': profile.id }, function (err, user) {
+      User.findOne({ 'email': profile._json.email }, function (err, user) {
         if (err) {
           console.log(err) // handle errors!
         }
@@ -81,17 +81,33 @@ module.exports = function (passport) {
           //   created: Date.now()
           // })
           var newUser = new User()
-          newUser.github.id = profile.id
+          newUser.github.id = profile._json.id
+          newUser.github.email = profile._json.email
+          newUser.github.location = profile._json.location
+          newUser.github.hireable = profile._json.hireable
+          newUser.github.company = profile._json.company
+          newUser.github.blog = profile._json.blog
+          newUser.github.bio = profile._json.bio
+          newUser.github.avatar_url = profile._json.avatar_url
+          newUser.github.html_url = profile._json.html_url
+          newUser.github.followers = profile._json.followers
+          newUser.github.disk_usage = profile._json.disk_usage
           newUser.github.access_token = access_token
           newUser.github.refresh_token = refresh_token
-          newUser.github.name = profile.displayName
+          newUser.github.name = profile._json.displayName
+
           newUser.save(function (err) {
+            var user = newUser
+            console.log('newUser:' + newUser)
+            console.log('currentUser: ' + currentUser)
+            console.log('user:' + user)
             if (err) {
               console.log(err) // handle errors!
             } else {
               console.log('saving user')
               done(null, user)
             }
+            console.log('I am a lamma')
           })
         }
       })

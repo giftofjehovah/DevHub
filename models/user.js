@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
     blog: String,
     bio: String,
     avatar_url: String,
-    langauges: [String],
+    languages: [String],
     html_url: String,
     location: String,
     followers: Number,
