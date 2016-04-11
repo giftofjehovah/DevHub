@@ -65,4 +65,5 @@ app.use('/local', localLoginRoutes)
 const userRoutes = require(__dirname + '/config/userRoutes')
 app.use('/user', userRoutes)
 
-// Gabrielle 11-4-16 9.45am
+const companyRoutes = require('./config/companyRoutes')
+app.use('/companies', companyRoutes)
