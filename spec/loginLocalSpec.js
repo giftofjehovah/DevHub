@@ -1,10 +1,12 @@
+'use strict'
+const request = require('request')
 
-
-describe('User can login', function () {
-  describe('', function () {
-    it('says hello', function () {
-      expect(add(1,2)).toEqual(3)
+describe('User can register', function () {
+  describe('GET /local/signup', function () {
+    it('should return status 200', function () {
+      request.get('http://localhost:5000/local/signup').on('response', function (response) {
+        expect(response.statusCode).toEqual(200)
+      })
     })
   })
-
 })
