@@ -67,3 +67,7 @@ app.use('/user', userRoutes)
 
 const companyRoutes = require('./config/companyRoutes')
 app.use('/companies', companyRoutes)
+
+exports.closeServer = function () {
+  server.close()
+}
