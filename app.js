@@ -5,16 +5,13 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const flash = require('connect-flash')
-const ejsLayouts = require('express-ejs-layouts')
+// const ejsLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const methodOverride = require('method-override')
-
-const GitHubStrategy = require('passport-github').Strategy
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
+const createProfile = require('./controllers/createProfile')
 
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
@@ -33,6 +30,7 @@ if (app.get('env') === 'development') {
     })
   })
 }
+
 // add code here
 app.use(logger('dev'))
 app.use(morgan('dev'))
@@ -62,6 +60,8 @@ app.use(function (req, res, next) {
   global.currentUser = req.user
   next()
 })
+
+app.use('/', createProfile)
 
 app.get('/', function (req, res) {
   res.json({user: req.user})
