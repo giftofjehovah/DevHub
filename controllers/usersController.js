@@ -9,7 +9,7 @@ function getSignup (req, res) {
 function postSignup (req, res) {
   console.log('Hi!')
   var signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
+    successRedirect: '/user',
     failureRedirect: '/signup',
     failureFlash: true
   })
@@ -25,7 +25,7 @@ function getLogin (req, res) {
 // POST /login
 function postLogin (req, res) {
   var loginStrategy = passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/user',
     failureRedirect: '/login',
     failureFlash: true
   })
@@ -40,7 +40,7 @@ function getLogout (req, res) {
 }
 
 // Restricted page
-function getSecret (req, res) {
+function getUser (req, res) {
 }
 
 module.exports = {
@@ -49,5 +49,5 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  getSecret: getSecret
+  getUser: getUser
 }

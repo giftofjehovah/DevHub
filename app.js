@@ -52,7 +52,13 @@ app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 
+
 require('./config/localPassport')(passport)
+
+app.use(function(req, res, next){
+  global.currentUser = req.user;
+  next();
+})
 
 const localLoginRoutes = require(__dirname + '/config/localLoginroutes')
 app.use('/local', localLoginRoutes)
