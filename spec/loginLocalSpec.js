@@ -1,4 +1,3 @@
-'use strict'
 const request = require('request')
 const port = process.env.PORT || 3000
 require('../app.js')
