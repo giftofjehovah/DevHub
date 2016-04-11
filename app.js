@@ -63,7 +63,7 @@ app.use(function(req, res, next){
 const localLoginRoutes = require(__dirname + '/config/localLoginRoutes')
 app.use('/local', localLoginRoutes)
 
-const localLoginRoutes = require(__dirname + '/config/userRoutes')
+const userRoutes = require(__dirname + '/config/userRoutes')
 app.use('/user', userRoutes)
 
 // Gabrielle 11-4-16 9.45am

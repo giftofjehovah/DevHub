@@ -1,4 +1,4 @@
-var passport = require('passport')
+const passport = require('passport')
 
 // GET /signup
 function getSignup (req, res) {
@@ -10,7 +10,7 @@ function postSignup (req, res) {
   console.log('Hi!')
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect: '/user',
-    failureRedirect: '/signup',
+    failureRedirect: '/local/signup',
     failureFlash: true
   })
 
@@ -26,7 +26,7 @@ function getLogin (req, res) {
 function postLogin (req, res) {
   var loginStrategy = passport.authenticate('local-login', {
     successRedirect: '/user',
-    failureRedirect: '/login',
+    failureRedirect: '/local/login',
     failureFlash: true
   })
 
@@ -36,11 +36,12 @@ function postLogin (req, res) {
 // GET /logout
 function getLogout (req, res) {
   req.logout()
-  res.redirect('/')
+  res.redirect('/local/login')
 }
 
 // Restricted page
 function getUser (req, res) {
+  res.render('user', {message: req.flash('errorMessage')})
 }
 
 module.exports = {
