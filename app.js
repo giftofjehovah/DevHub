@@ -1,4 +1,3 @@
-'use strict'
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -18,7 +17,7 @@ const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
 mongoose.connect(mongoUri)
 app.listen(port, function () {
-  console.log(`server listening on port ${port}`)
+  console.log('server listening on port ' + port)
 })
 
 if (app.get('env') === 'development') {
