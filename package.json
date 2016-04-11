@@ -30,7 +30,7 @@
     "express-ejs-layouts": "^2.0.0",
     "express-jwt": "^3.3.0",
     "express-session": "^1.13.0",
-    "jasmine-es6": "^0.1.8",
+    "jasmine": "^2.4.1",
     "jsonwebtoken": "^5.7.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.12",
