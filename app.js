@@ -54,6 +54,6 @@ app.use(express.static(__dirname + '/public'))
 require('./config/localPassport')(passport)
 
 const localLoginRoutes = require(__dirname + '/config/localLoginroutes')
-app.use('/', localLoginRoutes)
+app.use('/local', localLoginRoutes)
 
 // Gabrielle 11-4-16 9.45am

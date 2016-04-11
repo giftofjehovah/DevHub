@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
 const usersController = require('../controllers/usersController')
-const staticsController = require('../controllers/staticsController')
 
 router.route('/signup')
   .get(usersController.getSignup)
