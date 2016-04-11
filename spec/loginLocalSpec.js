@@ -1,6 +1,5 @@
 const request = require('request')
 const port = process.env.PORT || 3000
-require('../app.js')
 
 describe('User can register', function () {
   describe('GET /local/signup', function () {
