@@ -1,32 +1,31 @@
 const passport = require('passport')
 
-// GET /signup
+// GET /local/signup
 function getSignup (req, res) {
   //    console.log("helo!")
   res.render('signup', {message: req.flash('errorMessage')})
 }
-// POST /signup
+// POST /local/signup
 function postSignup (req, res) {
-  console.log('Hi!')
   var signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/user',
-    failureRedirect: '/local/signup',
+    successRedirect: '/',
+    failureRedirect: '/signup',
     failureFlash: true
   })
 
   return signupStrategy(req, res)
 }
 
-// GET /login
+// GET /local/login
 function getLogin (req, res) {
   res.render('login', {message: req.flash('errorMessage')})
 }
 
-// POST /login
+// POST /local/login
 function postLogin (req, res) {
   var loginStrategy = passport.authenticate('local-login', {
-    successRedirect: '/user',
-    failureRedirect: '/local/login',
+    successRedirect: '/',
+    failureRedirect: '/login',
     failureFlash: true
   })
 
@@ -36,7 +35,19 @@ function postLogin (req, res) {
 // GET /logout
 function getLogout (req, res) {
   req.logout()
-  res.redirect('/local/login')
+  res.redirect('/')
+}
+
+// GET /auth/github
+function getGithubLogin (req, res) {
+  return passport.authenticate('github', {scope: ['user', 'repo']})(req, res)
+}
+
+// GET /auth/github/callback
+function githubCallback (req, res) {
+  // var gitHubCallback =
+  return passport.authenticate('github', { failureRedirect: '/login', successRedirect: '/' })(req, res)
+  // gitHubCallback(req, res)
 }
 
 // Restricted page
@@ -50,5 +61,7 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  getUser: getUser
+  getUser: getUser,
+  getGithubLogin: getGithubLogin,
+  githubCallback: githubCallback
 }

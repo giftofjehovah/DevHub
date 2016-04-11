@@ -1,6 +1,10 @@
 const User = require('../models/user')
 const LocalStrategy = require('passport-local').Strategy
 
+const GitHubStrategy = require('passport-github').Strategy
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
+
 module.exports = function (passport) {
   // store sessions (serialize & dezerialize)
   passport.serializeUser(function (user, done) {
@@ -57,4 +61,40 @@ module.exports = function (passport) {
       done(null, user)
     })
   }))
+
+  passport.use('github', new GitHubStrategy({
+    clientID: GITHUB_CLIENT_ID,
+    clientSecret: GITHUB_CLIENT_SECRET,
+    callbackURL: 'http://localhost:3000/auth/github/callback'
+  },
+    function (access_token, refresh_token, profile, done) {
+      User.findOne({ 'github.id': profile.id }, function (err, user) {
+        if (err) {
+          console.log(err) // handle errors!
+        }
+        if (!err && user !== null) {
+          done(null, user)
+        } else {
+          // user = new User({
+          //   oauthID: profile.id,
+          //   name: profile.displayName,
+          //   created: Date.now()
+          // })
+          var newUser = new User()
+          newUser.github.id = profile.id
+          newUser.github.access_token = access_token
+          newUser.github.refresh_token = refresh_token
+          newUser.github.name = profile.displayName
+          newUser.save(function (err) {
+            if (err) {
+              console.log(err) // handle errors!
+            } else {
+              console.log('saving user')
+              done(null, user)
+            }
+          })
+        }
+      })
+    }
+  ))
 }

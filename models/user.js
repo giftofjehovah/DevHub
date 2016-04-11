@@ -13,6 +13,9 @@ const userSchema = mongoose.Schema({
     password: String
   },
   github: {
+    id: String,
+    access_token: String,
+    refresh_token: String,
     name: String,
     company: String,
     blog: String,

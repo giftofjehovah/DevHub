@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -5,12 +6,16 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const flash = require('connect-flash')
-// const ejsLayouts = require('express-ejs-layouts')
+const ejsLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const methodOverride = require('method-override')
+
+const GitHubStrategy = require('passport-github').Strategy
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
@@ -20,7 +25,6 @@ app.listen(port, function () {
 })
 
 if (app.get('env') === 'development') {
-  require('dotenv').config()
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
     res.render('error', {
@@ -52,18 +56,22 @@ app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 
-require('./config/localPassport')(passport)
+require('./config/passport')(passport)
 
 app.use(function (req, res, next) {
   global.currentUser = req.user
   next()
 })
 
-const localLoginRoutes = require(__dirname + '/config/localLoginRoutes')
-app.use('/local', localLoginRoutes)
+app.get('/', function (req, res) {
+  res.json({user: req.user})
+})
 
-const userRoutes = require(__dirname + '/config/userRoutes')
+const loginRoutes = require(__dirname + '/config/routes/loginRoutes')
+app.use('/', loginRoutes)
+
+const userRoutes = require(__dirname + '/config/routes/userRoutes')
 app.use('/user', userRoutes)
 
-const companyRoutes = require('./config/companyRoutes')
+const companyRoutes = require(__dirname + '/config/routes/companyRoutes')
 app.use('/companies', companyRoutes)
