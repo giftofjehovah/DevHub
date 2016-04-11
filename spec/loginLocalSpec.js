@@ -7,6 +7,7 @@ describe('User can register', function () {
       request.get('http://localhost:' + port + '/local/signup').on('response', function (response) {
         expect(response.statusCode).toEqual(200)
         done()
+
       })
     })
   })
