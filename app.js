@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -25,6 +24,7 @@ app.listen(port, function () {
 })
 
 if (app.get('env') === 'development') {
+  require('dotenv').config()
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
     res.render('error', {
