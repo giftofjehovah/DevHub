@@ -60,7 +60,10 @@ app.use(function(req, res, next){
   next();
 })
 
-const localLoginRoutes = require(__dirname + '/config/localLoginroutes')
+const localLoginRoutes = require(__dirname + '/config/localLoginRoutes')
 app.use('/local', localLoginRoutes)
+
+const localLoginRoutes = require(__dirname + '/config/userRoutes')
+app.use('/user', userRoutes)
 
 // Gabrielle 11-4-16 9.45am
