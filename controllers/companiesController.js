@@ -2,7 +2,7 @@
 const Company = require('../models/company')
 
 function getAll (request, response) {
-  Company.find((error, companies) => {
+  Company.find(function (error, companies) {
     if (error) return response.json({message: 'Company not found'})
     // response.send('Companies displayed')
     response.json({companies: companies})
