@@ -1,0 +1,10 @@
+<h2>My Profile</h2>
+
+<% if (message.length > 0) { %>
+    <div class="alert alert-danger"> <%= message %></div>
+<% } %>
+
+<% if (currentUser) { %>
+  <h2>User is logged in!</h2>
+  <a href="/local/logout">Logout</a>
+<% } %>
