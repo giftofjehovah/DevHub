@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jasmine"
   },
-    "engines": {
-      "node": "5.9.1"
-    },
+  "engines": {
+    "node": "5.9.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/giftofjehovah/DevHub.git"
@@ -30,7 +30,7 @@
     "express-ejs-layouts": "^2.0.0",
     "express-jwt": "^3.3.0",
     "express-session": "^1.13.0",
-    "jasmine": "^2.4.1",
+    "jasmine-es6": "^0.1.8",
     "jsonwebtoken": "^5.7.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.12",
