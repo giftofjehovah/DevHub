@@ -6,5 +6,6 @@
 
 <% if (currentUser) { %>
   <h2>User is logged in!</h2>
-  <a href="/local/logout">Logout</a>
+  <%= currentUser %>
+  <a href="/logout">Logout</a>
 <% } %>

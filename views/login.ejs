@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h2>Local Login</h2>
 
 <% if (message.length > 0) { %>
     <div class="alert alert-danger"> <%= message %></div>
@@ -18,3 +18,16 @@
 
   <input class="btn btn-default" type="submit">
 </form>
+
+<h2>Github Login</h2>
+<div>
+   <% if (currentUser != undefined){ %>
+    <h2>Data from Github</h2>
+    <pre>
+      <%= currentUser %>
+    </pre>
+    <a href="/logout">Logout</a>
+   <% } else { %>
+    <a href="/auth/github">Login with Github</a>
+   <% } %>
+ </div>

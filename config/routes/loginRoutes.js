@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const usersController = require('../controllers/usersController')
+const usersController = require('../../controllers/usersController')
+
+// router.route('/')
+//   .get(authenticatedUser, usersController.getUser)
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -9,6 +12,12 @@ router.route('/signup')
 router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin)
+
+router.route('/auth/github')
+  .get(usersController.getGithubLogin)
+
+router.route('/auth/github/callback')
+  .get(usersController.githubCallback)
 
 router.route('/logout')
   .get(usersController.getLogout)

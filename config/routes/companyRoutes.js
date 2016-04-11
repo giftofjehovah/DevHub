@@ -1,7 +1,7 @@
 // INDEX
 const router = require('express').Router()
 
-const companiesController = require('../controllers/companiesController')
+const companiesController = require('../../controllers/companiesController')
 
 router.route('/').get(companiesController.getAll)
 

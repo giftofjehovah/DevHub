@@ -13,12 +13,15 @@ const userSchema = mongoose.Schema({
     password: String
   },
   github: {
+    id: String,
+    access_token: String,
+    refresh_token: String,
     name: String,
     company: String,
     blog: String,
     bio: String,
     avatar_url: String,
-    langauges: [String],
+    languages: [String],
     html_url: String,
     location: String,
     followers: Number,
