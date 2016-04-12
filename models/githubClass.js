@@ -36,26 +36,31 @@ class Github {
   }
 
   getLanguages (cb) {
-    for (var i = 0; i < this.repos.length; i++) {
-      if (this.repos[i].fork === false) {
-        let options = {
-          url: this.repos[i].languages_url,
-          headers: {
-            'Authorization': 'token ' + this.access_token,
-            'User-Agent': 'request'
-          }
+    const repos = this.repos.filter(function (repo) {
+      return repo.fork === false
+    })
+    let counter = 0
+    for (let i = 0; i < repos.length; i++) {
+      let options = {
+        url: repos[i].languages_url,
+        headers: {
+          'Authorization': 'token ' + this.access_token,
+          'User-Agent': 'request'
         }
-
-        request.get(options, (error, response, body) => {
-          if (!error && response.statusCode === 200) {
-            let languages = JSON.parse(body)
-            this.setLanguage(languages)
-          } else {
-            console.log('error')
-          }
-          cb(this.languages)
-        })
       }
+
+      request.get(options, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+          let languages = JSON.parse(body)
+          this.setLanguage(languages)
+          counter++
+        } else {
+          console.log('error')
+        }
+        if (counter === repos.length) {
+          cb(this.languages)
+        }
+      })
     }
   }
 
@@ -67,6 +72,20 @@ class Github {
         this.languages[k] = languages[k]
       }
     }
+  }
+
+  languagesPercentage () {
+    let sum = 0
+    let calLanguaged = {}
+    for (var k in this.languages) {
+      sum += this.languages[k]
+    }
+    for (var key in this.languages) {
+      let percentage = (this.languages[key] / sum) * 100
+      let roundOff = Math.round(percentage * 10) / 10
+      calLanguaged[key] = roundOff
+    }
+    return calLanguaged
   }
 }
 module.exports = Github

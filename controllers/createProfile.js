@@ -9,6 +9,7 @@ function createProfile (req, res, next) {
     githubApi.getAllRepo(function () {
       githubApi.getRockStar()
       githubApi.getLanguages(function () {
+        console.log(githubApi.languagesPercentage())
       })
     })
   }
