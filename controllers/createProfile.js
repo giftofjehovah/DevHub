@@ -12,6 +12,7 @@ function createProfile (req, res, next) {
         console.log(githubApi.languagesPercentage())
       })
     })
+    console.log('Longest Streak:' + longestStreak.text())
   }
   next()
 }
