@@ -1,5 +1,9 @@
 'use strict'
 const request = require('request')
+const express = require('express')
+const fs = require('fs')
+const cheerio = require('cheerio')
+const app = express()
 
 class Github {
   constructor (access_token) {
@@ -87,5 +91,18 @@ class Github {
     }
     return calLanguaged
   }
+  getLongestStreak (req, res) {
+    var url = 'https://github.com/' + this.username
+    request(url, function (error, response, html) {
+      if (!error) {
+        const $ = cheerio.load(html)
+        $('.contrib-number').eq(1).filter(function () {
+          const longestStreak = $(this)
+          this.longestStreak = longestStreak.text()
+        })
+      }
+    })
+  }
+
 }
 module.exports = Github
