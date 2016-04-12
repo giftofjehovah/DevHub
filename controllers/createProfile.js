@@ -11,8 +11,11 @@ function createProfile (req, res, next) {
       githubApi.getLanguages(function () {
         console.log(githubApi.languagesPercentage())
       })
+      githubApi.getRepoLanguages(function (repoLanguages) {
+        console.log(githubApi.repoSummary)
+      })
+      githubApi.getLongestStreak()
     })
-    console.log('Longest Streak:' + longestStreak.text())
   }
   next()
 }

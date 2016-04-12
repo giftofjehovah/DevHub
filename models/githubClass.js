@@ -1,9 +1,6 @@
 'use strict'
 const request = require('request')
-const express = require('express')
-const fs = require('fs')
 const cheerio = require('cheerio')
-const app = express()
 
 class Github {
   constructor (access_token) {
@@ -11,6 +8,8 @@ class Github {
     this.repos = []
     this.rockStar = 0
     this.languages = {}
+    this.repoSummary = []
+    this.longestStreak = ''
   }
 
   getAllRepo (cb) {
@@ -96,11 +95,41 @@ class Github {
     request(url, function (error, response, html) {
       if (!error) {
         const $ = cheerio.load(html)
-        $('.contrib-number').eq(1).filter(function () {
-          const longestStreak = $(this)
-          this.longestStreak = longestStreak.text()
+        $('.contrib-number').eq(1).filter(() => {
+          const data = $(this)
+          this.longestStreak = data.text()
         })
       }
+    })
+  }
+
+  // Get one repo's languages
+  getRepoLanguages (cb) {
+    this.repos.forEach((repo) => {
+      let options = {
+        url: 'https://api.github.com/repos/' + repo.full_name + '/languages',
+        headers: {
+          'Authorization': 'token ' + this.access_token,
+          'User-Agent': 'request'
+        }
+      }
+
+      request.get(options, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+          let repoLanguages = JSON.parse(body)
+          // console.log(repoLanguages)
+          let repoSummary = {
+            name: repo.name,
+            desc: repo.description,
+            languages: repoLanguages
+          }
+          console.log(repoSummary)
+          this.repoSummary.push(repoSummary)
+          cb(repoSummary)
+        } else {
+          console.log('error')
+        }
+      })
     })
   }
 
