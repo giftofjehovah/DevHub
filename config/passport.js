@@ -82,6 +82,7 @@ module.exports = function (passport) {
           // })
           var newUser = new User()
           newUser.github.id = profile._json.id
+          newUser.github.username = profile._json.login
           newUser.github.email = profile._json.email
           newUser.github.location = profile._json.location
           newUser.github.hireable = profile._json.hireable
