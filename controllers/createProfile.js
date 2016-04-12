@@ -8,13 +8,14 @@ function createProfile (req, res, next) {
     console.log(githubApi)
     githubApi.getAllRepo(function () {
       githubApi.getRockStar()
+      githubApi.getActivity()
+      githubApi.getLongestStreak()
       githubApi.getLanguages(function () {
         console.log(githubApi.languagesPercentage())
       })
       githubApi.getRepoLanguages(function (repoLanguages) {
         console.log(githubApi.repoSummary)
       })
-      githubApi.getLongestStreak()
     })
   }
   next()

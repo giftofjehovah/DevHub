@@ -10,6 +10,7 @@ class Github {
     this.languages = {}
     this.repoSummary = []
     this.longestStreak = ''
+    this.activity = {}
   }
 
   getAllRepo (cb) {
@@ -128,6 +129,48 @@ class Github {
           cb(repoSummary)
         } else {
           console.log('error')
+        }
+      })
+    })
+  }
+
+  getActivity () {
+    // for (var i = 48; i < 52; i++) {
+    let week1 = 0
+    let week2 = 0
+    let week3 = 0
+    let week4 = 0
+    let counter = 0
+    this.repos.forEach((repo) => {
+      let participation = {
+        url: 'https://api.github.com/repos/' + repo.full_name + '/stats/participation',
+        headers: {
+          'Authorization': 'token ' + this.access_token,
+          'User-Agent': 'request'
+        }
+      }
+      request.get(participation, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+          counter++
+          var activity = JSON.parse(body)
+          if (!(activity.owner[48] === undefined)) {
+            week1 += activity.owner[48]
+            week2 += activity.owner[49]
+            week3 += activity.owner[50]
+            week4 += activity.owner[51]
+          }
+          if (counter === this.repos.length) {
+            let activity = {
+              week1: week1,
+              week2: week2,
+              week3: week3,
+              week4: week4
+            }
+            this.activity = activity
+            console.log(this.activity)
+          }
+        } else {
+          console.log(error)
         }
       })
     })
