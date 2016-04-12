@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema({
     rockstar: String,
     activity: String,
     longestStreak: String,
-    repo: []
+    repo: [{type: mongoose.Schema.Types.ObjectId, ref: 'Repo'}]
   }
 })
 
