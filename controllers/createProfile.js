@@ -6,15 +6,13 @@ function createProfile (req, res, next) {
   if (req.user) {
     let githubApi = new Github(req.user.github.access_token)
     console.log(githubApi)
-    githubApi.getAllRepo(function (repos) {
-      githubApi.repos = repos
+    githubApi.getAllRepo(function () {
       githubApi.getRockStar()
-      console.log(githubApi.rockStar)
+      githubApi.getLanguages(function () {
+      })
     })
-
-
   }
-next()
+  next()
 }
 
 module.exports = createProfile
