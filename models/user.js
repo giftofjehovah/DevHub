@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 
 const userSchema = mongoose.Schema({
   email: String,
+  profiled: Boolean,
   workExp: {
     company: String,
     position: String,

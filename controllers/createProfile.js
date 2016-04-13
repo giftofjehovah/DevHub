@@ -2,9 +2,8 @@
 const Github = require('../models/githubClass')
 const async = require('async')
 
-// let githubApi = new Github()
 function createProfile (req, res, next) {
-  if (req.user) {
+  if (req.user && req.user.profiled === false) {
     let githubApi = new Github(req.user.github.access_token, req.user.github.username)
     githubApi.getAllRepo(function () {
       async.parallel([
@@ -24,6 +23,7 @@ function createProfile (req, res, next) {
     req.user.data.longestStreak = result[2]
     req.user.data.languages = result[3]
     req.user.data.repos = result[4]
+    req.user.profiled = true
     req.user.save(function (err, user) {
       if (err) console.log(err)
       console.log(user)
