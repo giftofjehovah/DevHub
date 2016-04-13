@@ -12,3 +12,5 @@ router.route('/users')
 
 router.route('/companies')
   .get(apiController.getCompanies)
+
+module.exports = router

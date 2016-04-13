@@ -67,7 +67,7 @@ app.use(function (req, res, next) {
   next()
 })
 
-// app.use('/createprofile', createProfile)
+app.use('/createprofile', createProfile)
 app.get('/', function (req, res) {
   res.json({user: req.user})
 })
