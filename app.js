@@ -13,10 +13,6 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const createProfile = require('./controllers/createProfile')
 
-const fs = require('fs')
-const request = require('request')
-const cheerio = require('cheerio')
-
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
 mongoose.connect(mongoUri)
