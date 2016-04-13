@@ -1,6 +1,5 @@
 const User = require('../models/user')
 const LocalStrategy = require('passport-local').Strategy
-
 const GitHubStrategy = require('passport-github').Strategy
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
