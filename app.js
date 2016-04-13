@@ -61,21 +61,22 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/', createProfile)
+app.use('/createprofile', createProfile)
 
 app.get('/', function (req, res) {
   res.json({user: req.user})
+})
+
+const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
+app.use('/api', function (req, res) {
+  
 })
 
 const loginRoutes = require(__dirname + '/config/routes/loginRoutes')
 app.use('/', loginRoutes)
 
 const userRoutes = require(__dirname + '/config/routes/userRoutes')
-app.use('/user', userRoutes)
+app.use('/users', userRoutes)
 
 const companyRoutes = require(__dirname + '/config/routes/companyRoutes')
 app.use('/companies', companyRoutes)
-
-exports.closeServer = function () {
-  server.close()
-}

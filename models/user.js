@@ -3,8 +3,18 @@ const bcrypt = require('bcrypt')
 
 const userSchema = mongoose.Schema({
   email: String,
-  workExp: String,
-  education: String,
+  workExp: {
+    company: String,
+    position: String,
+    start: Date,
+    end: Date
+  },
+  education: {
+    school: String,
+    course: String,
+    start: Date,
+    end: Date
+  },
   local: {
     password: String
   },
