@@ -4,18 +4,22 @@ function setHeader (xhr) {
 }
 
 $('.btn').on('click', function (event) {
+  var type = ''
+  if (event.currentTarget.id === 'getusersbtn' || event.currentTarget.id === 'getuserbtn') type = 'users/'
+  else type = 'companies/'
   var form = event.currentTarget.id + 'field'
   var value = $('#' + form).val()
   var load = event.currentTarget.id + 'load'
   var card = event.currentTarget.id + 'card'
   $('.code').remove()
-  if (!value) {
-    console.log('hi')
+  if (!value && (event.currentTarget.id === 'getuserbtn' || event.currentTarget.id === 'getcompanybtn')) {
     $('#' + form).addClass('invalid')
   } else {
     $('<div>').addClass('progress').append($('<div>').addClass('indeterminate')).insertBefore('#' + event.currentTarget.id)
+    if(event.currentTarget.id === 'getusersbtn' || event.currentTarget.id === 'getcompaniesbtn') var url = baseUrl + type
+    else var url = baseUrl + type + value
     var req = {
-      url: baseUrl + 'users/' + value,
+      url: url,
       beforeSend: setHeader
     }
     console.log(req)

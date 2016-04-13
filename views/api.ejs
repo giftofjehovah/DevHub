@@ -61,27 +61,27 @@
           </p>
         </div>
 
-        <div class="section" id="getuser">
+        <div class="section" id="getusers">
           <blockquote>
             <h5>/api/v1/users</h5>
             <p>Get all users</p>
           </blockquote>
           <div class="card grey lighten-3">
-            <div class="card-content black-text">
+            <div class="card-content black-text" id="getusersbtncard">
                 <span class="card-title">Header</span>
                 <p>send token</p>
                 <span class="card-title">Body</span>
                 <p>no params or body is required</p>
             </div>
-            <div class="card-action">
-              <button class="btn waves-effect waves-light" type="submit" name="action">Try It!
+            <div class="card-action" id="getusersbtnload">
+              <button class="btn waves-effect waves-light" id="getusersbtn" type="submit" name="action">Try It!
                <i class="material-icons right">send</i>
               </button>
             </div>
           </div>
         </div>
 
-        <div class="section" id="getusers">
+        <div class="section" id="getuser">
           <blockquote>
             <h5>/api/v1/users/:username</h5>
             <p>Get user by specifying the username of the user</p>
