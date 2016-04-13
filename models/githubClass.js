@@ -1,6 +1,7 @@
 'use strict'
 const request = require('request')
 const cheerio = require('cheerio')
+
 const Repo = require('./repo')
 
 class Github {
@@ -98,14 +99,11 @@ class Github {
 
   getLongestStreak (cb) {
     var url = 'https://github.com/' + this.username
-    request(url, (error, response, html) => {
+    request(url, function (error, response, html) {
       if (!error) {
         const $ = cheerio.load(html)
-        $('.contrib-number').eq(1).filter(() => {
-          const data = $(this)
-          this.longestStreak = data.text()
-          cb(false, this.longestStreak)
-        })
+        this.longestStreak = $('.contrib-number').eq(1).text()
+        cb(false, this.longestStreak)
       }
     })
   }
