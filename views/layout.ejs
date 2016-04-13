@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Profile</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="../public/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
-    <h1>Hello</h1>
+
+    <!-- Header -->
+    <div class ="container">
+      <% include ./partials/quote/header %>
+    </div>
+
+
+    <h1>DevHub</h1>
     <div class ="container">
         <% include ./partials/users %>
     </div>
 
+
+    <!-- Footer -->
+    <div class ="container">
+      <% include ./partials/quote/footer %>
+    </div>
+
+
+    <!-- jQuery is required by Materialize to function -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      // Activate the side menu
+      $(".button-collapse").sideNav();
+    });
+    </script>
   </body>
 </html>
