@@ -124,7 +124,7 @@ class Github {
             desc: repo.description,
             languages: repoLanguages
           }
-          console.log(repoSummary)
+          // console.log(repoSummary)
           this.repoSummary.push(repoSummary)
           cb(repoSummary)
         } else {
