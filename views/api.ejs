@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="col s6 grey lighten-5">
+    <div class="col s7 grey lighten-5">
       <div class="container">
         <div class="section" id="doc">
           <blockquote>
@@ -60,10 +60,11 @@
             To request your access token to the DevHub API just login here.
           </p>
         </div>
-        <div class="section" id="getusers">
+
+        <div class="section" id="getuser">
           <blockquote>
             <h5>/api/v1/users</h5>
-            <p>get all users</p>
+            <p>Get all users</p>
           </blockquote>
           <div class="card grey lighten-3">
             <div class="card-content black-text">
@@ -79,9 +80,51 @@
             </div>
           </div>
         </div>
+
+        <div class="section" id="getusers">
+          <blockquote>
+            <h5>/api/v1/users/:username</h5>
+            <p>Get user by specifying the username of the user</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text">
+                <table>
+                  <thead>
+                    <tr>
+                        <th data-field="id">Parameter</th>
+                        <th data-field="name">Value</th>
+                        <th data-field="name">Description</th>
+                        <th data-field="price">Data Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>username</td>
+                     <td>
+                       <div class="input-field col s12">
+                        <input id="getuserbtnfield" type="text" class="validate">
+                        <label for="password" data-error="please enter a value">Value</label>
+                      </div>
+                     </td>
+                     <td>github username</td>
+                     <td>String</td>
+                   </tr>
+                 </tbody>
+                </table>
+            </div>
+            <div class="card-action" id="getuserbtnload">
+              <!-- <div class="progress">
+                  <div class="indeterminate"></div>
+              </div> -->
+              <button class="btn waves-effect waves-light" id="getuserbtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col s4 grey darken-3">
+    <div class="col s3 grey darken-3">
       <div class="container">
         asdas
       </div>
@@ -90,6 +133,7 @@
 
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
 </body>
 </html>
