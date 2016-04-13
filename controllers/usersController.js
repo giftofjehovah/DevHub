@@ -1,67 +1,78 @@
-const passport = require('passport')
+const User = require('../models/user')
 
-// GET /local/signup
-function getSignup (req, res) {
-  //    console.log("helo!")
-  res.render('signup', {message: req.flash('errorMessage')})
-}
-// POST /local/signup
-function postSignup (req, res) {
-  var signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/signup',
-    failureFlash: true
+function showUser (req, res) {
+  const username = req.params.username
+
+  User.find({'github.username': username}, function (err, user) {
+    if (err) console.log(err)
+    res.render('userProfile', {user: user})
   })
-
-  return signupStrategy(req, res)
 }
+
+function indexUsers (req, res) {
+  User.find(function (err, users) {
+    if (err) console.log(err)
+    res.render('users', {users: users})
+  })
+}
+
+function updateUser (req, res) {
+  const username = req.params.username
+
+  User.findOneAndUpdate({'github.username': username}, {workExp: req.body.workExp, education: req.body.education}, {}, function (err, user) {
+    if (err) console.log(err)
+    res.redirect('/users/' + username)
+  })
+}
+
+function editUser (req, res) {
+  const username = req.params.username
+
+  User.find({'github.username': username}, function (err, user) {
+    if (err) console.log(err)
+    res.render('userForm', {user: user})
+  })
+}
+
+module.exports = {
+  showUser: showUser,
+  indexUsers: indexUsers,
+  updateUser: updateUser,
+  editUser: editUser
+}
+// GET /local/signup
+// function getSignup (req, res) {
+//   //    console.log("helo!")
+//   res.render('signup', {message: req.flash('errorMessage')})
+// }
+// POST /local/signup
+// function postSignup (req, res) {
+//   var signupStrategy = passport.authenticate('local-signup', {
+//     successRedirect: '/',
+//     failureRedirect: '/signup',
+//     failureFlash: true
+//   })
+//
+//   return signupStrategy(req, res)
+// }
 
 // GET /local/login
-function getLogin (req, res) {
-  res.render('login', {message: req.flash('errorMessage')})
-}
+// function getLogin (req, res) {
+//   res.render('login', {message: req.flash('errorMessage')})
+// }
 
 // POST /local/login
-function postLogin (req, res) {
-  var loginStrategy = passport.authenticate('local-login', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-  })
-
-  return loginStrategy(req, res)
-}
-
-// GET /logout
-function getLogout (req, res) {
-  req.logout()
-  res.redirect('/')
-}
-
-// GET /auth/github
-function getGithubLogin (req, res) {
-  return passport.authenticate('github', {scope: ['user', 'repo']})(req, res)
-}
-
-// GET /auth/github/callback
-function githubCallback (req, res) {
-  // var gitHubCallback =
-  return passport.authenticate('github', { failureRedirect: '/login', successRedirect: '/' })(req, res)
-  // gitHubCallback(req, res)
-}
+// function postLogin (req, res) {
+//   var loginStrategy = passport.authenticate('local-login', {
+//     successRedirect: '/',
+//     failureRedirect: '/login',
+//     failureFlash: true
+//   })
+//
+//   return loginStrategy(req, res)
+// }
 
 // Restricted page - OWN PROFILE
 // function getUser (req, res) {
 //   res.render('user', {message: req.flash('errorMessage')})
 // }
-
-module.exports = {
-  getLogin: getLogin,
-  postLogin: postLogin,
-  getSignup: getSignup,
-  postSignup: postSignup,
-  getLogout: getLogout,
-  // getUser: getUser,
-  getGithubLogin: getGithubLogin,
-  githubCallback: githubCallback
-}

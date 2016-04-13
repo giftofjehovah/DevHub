@@ -1,0 +1,39 @@
+<h2>Edit Profile</h2>
+<form method="POST" action=<%= "/user/" + user._id + "?_method=PATCH" %>>
+
+<% if (currentUser) { %>
+  <h3>User is logged in!</h3>
+  <%= currentUser %>
+  <a href="/logout">Logout</a>
+  <% } %>
+
+  <div>
+      <input type="text" class="form-control" name="Highest degree attained" placeholder="Name of degree">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="School" placeholder="Name of School">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Position 1" placeholder="Position">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Company 1" placeholder="Company Name">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Position 2" placeholder="Position">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Company 2" placeholder="Company Name">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Position 3" placeholder="Position">
+  </div>
+  <div>
+      <input type="text" class="form-control" name="Company 3" placeholder="Company Name">
+  </div>
+
+  <div class="form-group col-md-4">
+    <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+  </div>
+
+  </form>
