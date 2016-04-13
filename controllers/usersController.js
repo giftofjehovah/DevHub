@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const jwt = require('jsonwebtoken')
 
 function showUser (req, res) {
   const username = req.params.username
@@ -34,11 +35,21 @@ function editUser (req, res) {
   })
 }
 
+function getAuthToken (req, res) {
+  const tokenInfo = {
+    username: req.user.github.username,
+    _id: req.user._id
+  }
+  const token = jwt.sign(tokenInfo, process.env.JWTSECRET)
+  res.render('auth', {token: token})
+}
+
 module.exports = {
   showUser: showUser,
   indexUsers: indexUsers,
   updateUser: updateUser,
-  editUser: editUser
+  editUser: editUser,
+  getAuthToken: getAuthToken
 }
 // GET /local/signup
 // function getSignup (req, res) {

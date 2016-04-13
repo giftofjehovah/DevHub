@@ -12,6 +12,12 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const createProfile = require('./controllers/createProfile')
+const expressJWT = require('express-jwt')
+
+const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
+const loginRoutes = require(__dirname + '/config/routes/loginRoutes')
+const userRoutes = require(__dirname + '/config/routes/userRoutes')
+const companyRoutes = require(__dirname + '/config/routes/companyRoutes')
 
 const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
@@ -61,22 +67,13 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/createprofile', createProfile)
-
+// app.use('/createprofile', createProfile)
 app.get('/', function (req, res) {
   res.json({user: req.user})
 })
 
-const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
-app.use('/api', function (req, res) {
-  
-})
-
-const loginRoutes = require(__dirname + '/config/routes/loginRoutes')
+app.use('/api', expressJWT({secret: process.env.JWTSECRET}))
+app.use('/api', apiRoutes)
 app.use('/', loginRoutes)
-
-const userRoutes = require(__dirname + '/config/routes/userRoutes')
 app.use('/users', userRoutes)
-
-const companyRoutes = require(__dirname + '/config/routes/companyRoutes')
 app.use('/companies', companyRoutes)
