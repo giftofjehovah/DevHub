@@ -10,7 +10,7 @@ const authController = require('../../controllers/authController')
 //   .post(usersController.postSignup)
 //
  router.get('/login', function(req, res){
-    .res.render('login')
+    res.render('login')
  })
  
 router.get('/', function (req, res) {
