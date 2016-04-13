@@ -1,10 +1,12 @@
 'use strict'
 const request = require('request')
 const cheerio = require('cheerio')
+const Repo = require('./repo')
 
 class Github {
-  constructor (access_token) {
+  constructor (access_token, username) {
     this.access_token = access_token
+    this.username = username
     this.repos = []
     this.rockStar = 0
     this.languages = {}
@@ -33,14 +35,15 @@ class Github {
     })
   }
 
-  getRockStar () {
+  getRockStar (cb) {
     this.repos.forEach((repo) => {
       this.rockStar += repo.stargazers_count
     })
+    cb(false, this.rockStar)
   }
 
   getLanguages (cb) {
-    const repos = this.repos.filter(function (repo) {
+    const repos = this.repos.filter((repo) => {
       return repo.fork === false
     })
     let counter = 0
@@ -60,9 +63,10 @@ class Github {
           counter++
         } else {
           console.log('error')
+          cb(true)
         }
         if (counter === repos.length) {
-          cb(this.languages)
+          cb(false, this.languages)
         }
       })
     }
@@ -91,22 +95,25 @@ class Github {
     }
     return calLanguaged
   }
-  getLongestStreak (req, res) {
+
+  getLongestStreak (cb) {
     var url = 'https://github.com/' + this.username
-    request(url, function (error, response, html) {
+    request(url, (error, response, html) => {
       if (!error) {
         const $ = cheerio.load(html)
         $('.contrib-number').eq(1).filter(() => {
           const data = $(this)
           this.longestStreak = data.text()
+          cb(false, this.longestStreak)
         })
       }
     })
   }
 
   // Get one repo's languages
-  getRepoLanguages (cb) {
-    this.repos.forEach((repo) => {
+  getRepoSummary (cb) {
+    let counter = 0
+    this.repos.forEach((repo, i) => {
       let options = {
         url: 'https://api.github.com/repos/' + repo.full_name + '/languages',
         headers: {
@@ -117,25 +124,31 @@ class Github {
 
       request.get(options, (error, response, body) => {
         if (!error && response.statusCode === 200) {
+          counter++
+          let languages = []
           let repoLanguages = JSON.parse(body)
-          // console.log(repoLanguages)
+          for (var k in repoLanguages) {
+            languages.push(k)
+          }
           let repoSummary = {
             name: repo.name,
             desc: repo.description,
-            languages: repoLanguages
+            languages: languages
           }
-          console.log(repoSummary)
-          this.repoSummary.push(repoSummary)
-          cb(repoSummary)
+          let mongoRepo = new Repo(repoSummary)
+          this.repoSummary.push(mongoRepo)
+          if (counter === this.repos.length) {
+            cb(false, this.repoSummary)
+          }
         } else {
+          cb(true)
           console.log('error')
         }
       })
     })
   }
 
-  getActivity () {
-    // for (var i = 48; i < 52; i++) {
+  getActivity (cb) {
     let week1 = 0
     let week2 = 0
     let week3 = 0
@@ -167,9 +180,10 @@ class Github {
               week4: week4
             }
             this.activity = activity
-            console.log(this.activity)
+            cb(false, this.activity)
           }
         } else {
+          cb(true)
           console.log(error)
         }
       })

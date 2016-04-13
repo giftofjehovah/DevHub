@@ -17,7 +17,6 @@ const userSchema = mongoose.Schema({
     blog: String,
     bio: String,
     avatar_url: String,
-    languages: [String],
     html_url: String,
     location: String,
     followers: Number,
@@ -25,10 +24,11 @@ const userSchema = mongoose.Schema({
     hireable: Boolean
   },
   data: {
-    rockstar: String,
-    activity: String,
+    rockStar: Number,
+    activity: { week1: Number, week2: Number, week3: Number, week4: Number },
     longestStreak: String,
-    repo: [{type: mongoose.Schema.Types.ObjectId, ref: 'Repo'}]
+    repos: [{type: mongoose.Schema.Types.ObjectId, ref: 'Repo'}],
+    languages: {}
   }
 })
 
