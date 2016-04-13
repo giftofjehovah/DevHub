@@ -68,12 +68,9 @@ app.use(function (req, res, next) {
 })
 
 app.use('/createprofile', createProfile)
-app.get('/', function (req, res) {
-  res.json({user: req.user})
-})
 
-app.use('/api', expressJWT({secret: process.env.JWTSECRET}))
-app.use('/api', apiRoutes)
+app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
+app.use('/api/v1', apiRoutes)
 app.use('/', loginRoutes)
 app.use('/users', userRoutes)
 app.use('/companies', companyRoutes)
