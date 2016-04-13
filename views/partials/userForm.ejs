@@ -1,0 +1,51 @@
+<h2>Edit Work Experience and Education</h2>
+<form method="POST" action=<%= "/user/" + username + "?_method=PUT" %>>
+
+  <div class="row">
+      <form class="col s12">
+        <div class="row">
+  <!-- Work Experience -->
+  <div class="input-field col s6">
+    <input placeholder="Company Name" id="company" type="text" class="validate">
+    <label for="workExp[name]">Most recent company:</label>
+  </div>
+  <div class="input-field col s6">
+    <input placeholder="Position" id="position" type="text" class="validate">
+    <label for="workExp[position]">Most recent position:</label>
+  </div>
+  <div class="input-field col s6">
+      <input placeholder="YYYY" id="start" type="text" class="validate">
+      <label for="workExp[start]">Start Year:</label>
+  </div>
+  <div class="input-field col s6">
+      <input placeholder="YYYY" id="end" type="text" class="validate">
+      <label for="workExp[end]">End Year:</label>
+  </div>
+
+    <!-- Education -->
+
+  <div class="input-field col s6">
+      <input placeholder="School Name" id="school" type="text" class="validate">
+      <label for="education[school]">Most recent school:</label>
+  </div>
+  <div class="input-field col s6">
+      <input placeholder="Course Name" id="course" type="text" class="validate">
+      <label for="education[course]">Most recent course:</label>
+  </div>
+  <div class="input-field col s6">
+      <input placeholder="YYYY" id="start" type="text" class="validate">
+      <label for="education[start]">Start Year</label>
+  </div>
+  <div class="input-field col s6">
+      <input placeholder="YYYY" id="end" type="text" class="validate">
+      <label for="education[end]">End Year</label>
+  </div>
+
+  <div class="form-group col-md-4">
+    <button type="submit" class="btn btn-primary col-md-12">Edit</button>
+  </div>
+
+</div>
+</form>
+</div>
+</form>

@@ -1,14 +1,17 @@
-<h2>My Profile</h2>
+<div class="container">
+<h2>user.name</h2>
 
-<% if (currentUser) { %>
-  <h3>User is logged in!</h3>
-  <%= currentUser %>
-  <a href="/logout">Logout</a>
-  <% } %>
+<div id="cover_photo"></div>
+<div id="profile_photo"></div>
 
-  <div class="container">
+<div>
+
+
+</div>
+
+
           <ul>
-          <<li><b>Username : </b> <%= user[i].username %></li>
+          <li><b>Username: </b> <%= user[i].username %></li>
           <li><b>Company: </b> <%= user[i].company %></li>
           <li><b>Blog: </b> <%= user[i].blog %></li>
           <li><b>Bio: </b> <%= user[i].bio %></li>
@@ -19,8 +22,13 @@
           <li><b>Followers: </b> <%= user[i].followers %></li>
           <li><b>Hireable: </b> <%= user[i].hireable %></li>
           </ul>
-        <%-link_to('Edit Education and Work Experience', '/edit')%>
+
+          <div class="container">
+          <% include ./partials/userForm %>
+          </div>
+
   </div>
+
 
 <!-- Activity line chart -->
 <h3>My activity</h3>
