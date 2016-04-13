@@ -63,10 +63,6 @@ app.use(function (req, res, next) {
 
 app.use('/createprofile', createProfile)
 
-app.get('/', function (req, res) {
-  res.json({user: req.user})
-})
-
 const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
 app.use('/api', function (req, res) {
   
