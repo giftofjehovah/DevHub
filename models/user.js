@@ -5,10 +5,6 @@ const userSchema = mongoose.Schema({
   email: String,
   workExp: String,
   education: String,
-  location: String,
-  rockstar: String,
-  activity: String,
-  longestStreak: String,
   local: {
     password: String
   },
@@ -16,7 +12,6 @@ const userSchema = mongoose.Schema({
     id: String,
     username: String,
     access_token: String,
-    refresh_token: String,
     name: String,
     company: String,
     blog: String,
@@ -28,6 +23,12 @@ const userSchema = mongoose.Schema({
     followers: Number,
     disk_usage: Number,
     hireable: Boolean
+  },
+  data: {
+    rockstar: String,
+    activity: String,
+    longestStreak: String,
+    repo: [{type: mongoose.Schema.Types.ObjectId, ref: 'Repo'}]
   }
 })
 

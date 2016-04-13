@@ -75,15 +75,10 @@ module.exports = function (passport) {
         if (!err && user !== null) {
           done(null, user)
         } else {
-          // user = new User({
-          //   oauthID: profile.id,
-          //   name: profile.displayName,
-          //   created: Date.now()
-          // })
           var newUser = new User()
           newUser.github.id = profile._json.id
           newUser.github.username = profile._json.login
-          newUser.github.email = profile._json.email
+          newUser.email = profile._json.email
           newUser.github.location = profile._json.location
           newUser.github.hireable = profile._json.hireable
           newUser.github.company = profile._json.company
@@ -95,20 +90,16 @@ module.exports = function (passport) {
           newUser.github.disk_usage = profile._json.disk_usage
           newUser.github.access_token = access_token
           newUser.github.refresh_token = refresh_token
-          newUser.github.name = profile._json.displayName
+          newUser.github.name = profile._json.name
 
           newUser.save(function (err) {
             var user = newUser
-            console.log('newUser:' + newUser)
-            console.log('currentUser: ' + currentUser)
-            console.log('user:' + user)
             if (err) {
               console.log(err) // handle errors!
             } else {
               console.log('saving user')
               done(null, user)
             }
-            console.log('I am a lamma')
           })
         }
       })
