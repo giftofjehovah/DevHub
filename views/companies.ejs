@@ -1,0 +1,70 @@
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <h4>Companies</h4>
+  <div class="container">
+  <div class="row">
+    <% companies.forEach( company => { %>
+      <div class="col s12 m4 l3">
+        <div class="card m">
+          <div class="card-top">
+            <span><h5><%= company.name %></h5></span>
+            <div class="spacer">
+              <br>
+              <br>
+            </div>
+            <div class="card-sizer valign-wrapper">
+              <div class="card-image waves-effect waves-block waves-light valign">
+                   <img class="activator" src=" <%= company.image %> ">
+               </div>
+            </div>
+            <div class="spacer">
+              <br>
+              <br>
+            </div>
+            <span><%= company.industry %></span>
+            <div class="spacer">&nbsp;</div>
+          </div>
+          <div class="card-content" id="developers-content">
+            <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+            <p>
+            <br>
+            <div class="languages-display">
+              <% for (var i = 0; i < company.stack.length; i++) { %>
+                <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size"></i>
+              <% } %>
+            </div>
+          
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= company.name %><i class="material-icons right">close</i></span>
+            <ul>
+              <li><strong> Industry: </strong> <%= company.industry %> </li>
+              <br>
+              <li><strong> Description: </strong> <%= company.description %> </li>
+              <br>
+              <li><strong> Stack: </strong>
+                <% for (var i = 0; i < company.stack.length; i++) { %>
+                  <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size-inside"></i>
+                <% } %>
+              </li>
+              <li><strong> Jobs: </strong> <%= company.jobs %> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  </div>
+  <br>
+<!-- jQuery is required by Materialize to function -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Activate the side menu
+    $(".button-collapse").sideNav();
+  });
+</script>

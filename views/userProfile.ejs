@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link type="text/css" rel="stylesheet" href="/css/userProfile.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="home-card" class="row">
+    <div class="col s6 m12 l8 offset-l2">
+        <h3 class="center-align"><b><%= user.github.name %></b></h3>
+    </div>
+</div>
+
+<h4 class="center-align"><%= user.github.username %></h4>
+
+<div class="row">
+      <div class="col s12" >
+        <img class="profile" style="margin: 0 auto; width: auto; display: block" src="<%= user.github.avatar_url %>">
+        <h5 class="center-align"><%= user.github.location %></h5>
+      </div>
+</div>
+<div class="row">
+<div class="profile-stats col s12 center-align">
+    <ul>
+
+      <li><%= user.data.rockStar %><span>Stars</span></li>
+      <li><%= user.data.longestStreak %><span>Longest Streak</span></li>
+      <li><%= user.github.followers %><span>Followers</span></li>
+    </ul>
+</div>
+</div>
+
+
+    <div class="row">
+      <div class="col s4">
+        <h5>Most recent</h5>
+    <ul>
+      <li>Company: <%= user.workExp.company %></li>
+      <li>Position: <%= user.workExp.position %></li>
+      <li>Course: <%= user.education.course %></li>
+      <li>School: <%= user.education.school %></li>
+      <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
+    </ul>
+      </div>
+      <div class="col s4">
+        <h5>Languages used</h5>
+        <p>Donut chart here</p>
+      </div>
+      <div class="col s4">
+        <h5>Last month's commit activity</h5>
+        <div id="myDiv" style="width: 400px; height: 350px;">
+        </div>
+        <script>
+        var data = [
+          {
+          x: ['4 wks ago', '3 wks ago', '2 wks ago', '1 wk ago'],
+          y: [<%= user.data.activity.week1%>,<%= user.data.activity.week2%>,<%= user.data.activity.week3%>,<%= user.data.activity.week4%>],
+          type: 'scatter'
+          }
+          ];
+          Plotly.newPlot('myDiv', data);
+      </script>
+      </div>
+    </div>
+
+
+
+    <div class="row cards">
+<% for (var i = 0; i < 3; i++){ %>
+        <div class="col s12 m6 l4">
+          <div class="card l">
+            <div class="card-image">
+              <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
+              <span class="card-title"><%= user.data.repos[i].name %></span>
+            </div>
+            <div class="card-action">
+              <p>Coded in: <%= user.data.repos[i].languages %></p>
+            </div>
+          </div>
+        </div>
+      <% } %>
+</div>
+
+
+
+<h5>Get in Touch:</h5>
+  <div class="row cards">
+    <div>
+      <a class="waves-effect waves-light btn" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://www.linkedin.com"><i class="fa fa-linkedin" ></i> LinkedIn</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://github.com"><i class="fa fa-envelope" ></i> Email </a>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>

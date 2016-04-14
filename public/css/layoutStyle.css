@@ -1,0 +1,21 @@
+#searchbar{
+    width: 300px;
+}
+#home-button{
+    width: 40%;
+}
+nav ul li a{
+    font-size: 1.2em;
+}
+nav ul li:hover {
+   background-color: #42a5f5;
+}
+
+body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+ }
+ main {
+     flex: 1 0 auto;
+ }

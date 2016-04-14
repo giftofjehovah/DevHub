@@ -1,0 +1,80 @@
+<head>
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<h4>Developers</h4>
+<div class="container">
+<div class="row" id="developers-container">
+
+  <% users.forEach( user => { %>
+    <div class="col s12 m4 l3">
+      <div class="card m">
+
+        <div class="card-top">
+          <span><h5><%= user.github.username %></h4></span>
+          <div class="spacer">
+            <br>
+            <br>
+          </div>
+        <div class="card-sizer valign-wrapper">
+           <div class="card-image waves-effect waves-block waves-light valign">
+             <img class="activator developer" src="<%= user.github.avatar_url %>">
+           </div>
+        </div>
+
+      </div>
+
+      <div class="card-content" id="companies-content">
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+        <br>
+        <strong> Rockstar: </strong> <%= user.data.rockStar %>
+        <br>
+        <strong> Longest Streak: </strong> <%= user.data.longestStreak %>
+        </p>
+      </div>
+
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">close</i></span>
+        <ul>
+          <li>
+            <strong> Stack:
+              <% for (var z in user.data.languages) {%>
+
+              <i class="devicon-<%= z.toLowerCase() %>-plain colored size"></i>
+              <%}%>
+          </strong>
+          </li>
+          <li>
+             <strong> Education:
+               <%# for (var x in user.data.education) %>
+               <%#= x %> : <%#=user.data.education[x] %>
+             </strong>
+           </li>
+           <li>
+             <strong> Work Experience:
+               <%# for (var y in user.data.workExp) %>
+               <%#= y %> : <%#=user.data.workExp[y] %>
+             </strong>
+           </li>
+        </ul>
+      </div>
+
+    </div>
+    </div>
+    <% }) %>
+  </div>
+  </div>
+  <br>
+
+
+<!-- jQuery is required by Materialize to function -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // Activate the side menu
+    $(".button-collapse").sideNav();
+  });
+</script>

@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jasmine"
   },
+  "engines": {
+    "node": "5.9.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/giftofjehovah/DevHub.git"
@@ -17,9 +20,12 @@
   },
   "homepage": "https://github.com/giftofjehovah/DevHub#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.15.0",
+    "cheerio": "latest",
     "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.0.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
@@ -31,9 +37,12 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.4.12",
     "morgan": "^1.7.0",
+    "node-mongo-seeds": "^2.2.7",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.0",
     "passport-github": "^1.1.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "^2.70.0",
+    "underscore": "^1.8.3"
   }
 }

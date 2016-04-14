@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Dropbox",
+    "image": "http://image005.flaticon.com/28/svg/34/34341.svg",
+    "industry": ["Cloud Storage"],
+    "description": "Save everything.",
+    "stack": ["Python"],
+    "jobs": ["Software Engineer"]
+  },
+
+  {
+    "name": "Facebook",
+    "image": "http://image005.flaticon.com/28/svg/33/33702.svg",
+    "industry": ["Social Media", "Networking"],
+    "description": "Connecting people.",
+    "stack": ["PHP", "React"],
+    "jobs": ["Software Engineer", "Mobile Application Developer"]
+  },
+
+  {
+    "name": "Google",
+    "image": "http://image005.flaticon.com/28/svg/33/33975.svg",
+    "industry": ["Software", "Search"],
+    "description": "The only search engine",
+    "stack": ["Javascript", "GO"],
+    "jobs": ["Mobile Application Developer", "Software Engineer"]
+  },
+
+  {
+    "name": "Twitter",
+    "image": "http://image005.flaticon.com/28/svg/34/34238.svg",
+    "industry": ["Social Media", "Network"],
+    "description": "Tweet away.",
+    "stack": ["Ruby", "Rails"],
+    "jobs": ["Mobile Application Developer", "Software Engineer"]
+  },
+
+  {
+    "name": "Github",
+    "image": "http://image005.flaticon.com/28/svg/33/33600.svg",
+    "industry": ["Developer Tools"],
+    "description": "How people build software.",
+    "stack": ["Rails", "Ruby"],
+    "jobs": ["Enterprise Support Engineer", "Backend Engineer"]
+  }
+
+]

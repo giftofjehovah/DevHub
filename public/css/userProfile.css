@@ -1,0 +1,40 @@
+.profile{
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+}
+
+div.profile-stats ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.profile-stats ul li {
+  color: blue;
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 50px;
+}
+
+div.profile-stats li span {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+div.profile-stats a.follow {
+  display: block;
+  float: right;color: #ffffff;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+div.cards{
+  display: inline-flex;
+  justify-content: space-between;
+}

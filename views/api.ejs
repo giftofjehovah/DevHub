@@ -1,0 +1,178 @@
+  <div class="row grey lighten-5">
+    <div class="col m3 l2 grey lighten-5 hide-on-small-only offset-l1">
+      <div class="container" style= "position: fixed;">
+        <div class="section">
+          <h5>Documentation</h5>
+          <a href="#doc">Getting Started</a>
+        </div>
+        <div class="section">
+          <h5>Users</h5>
+          <ul>
+            <li><a href="#getusers">/api/v1/users</a></li>
+            <li><a href="#getuser">/api/v1/users/:username</a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <h5>Companies</h5>
+          <ul>
+            <li><a href="#getcompanies">/api/v1/companies</a></li>
+            <li><a href="#getcompany">/api/v1/companies/:name</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m9 l10 grey lighten-5 offset-l2 offset-m3">
+      <div class="container">
+        <div class="section" id="doc">
+          <blockquote>
+              <h5>Getting Started with DevHub API</h5>
+          </blockquote>
+          <p>This page will help you get started with DevHub API. You'll be up and running in a jiffy!</p>
+          <p>Welcome to the DevHub API (Closed Beta)! We're excited to start giving people access to
+            the data on DevHub. Our API has two main sets of endpoints: Users and Companies. Users are
+            defined as Github users. Companies are defined as companies.
+            To request your access token to the DevHub API just login here.
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section" id="getusers">
+          <blockquote>
+            <h5>/api/v1/users</h5>
+            <p>Get all users</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getusersbtncard">
+                <span class="card-title">Header</span>
+                <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+                <br>
+                <span class="card-title">Body</span>
+                <p>no params or body is required</p>
+            </div>
+            <div class="card-action" id="getusersbtnload">
+              <button class="btn waves-effect waves-light" id="getusersbtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="getuser">
+          <blockquote>
+            <h5>/api/v1/users/:username</h5>
+            <p>Get user by specifying the username of the user</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getuserbtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
+                <table>
+                  <thead>
+                    <tr>
+                        <th data-field="id">Parameter</th>
+                        <th data-field="name">Value</th>
+                        <th data-field="name">Description</th>
+                        <th data-field="price">Data Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>username</td>
+                     <td>
+                       <div class="input-field col s12">
+                        <input id="getuserbtnfield" type="text" class="validate">
+                        <label for="password" data-error="please enter a value">Value</label>
+                      </div>
+                     </td>
+                     <td>github username</td>
+                     <td>String</td>
+                   </tr>
+                 </tbody>
+                </table>
+            </div>
+            <div class="card-action" id="getuserbtnload">
+              <button class="btn waves-effect waves-light" id="getuserbtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="getcompanies">
+          <blockquote>
+            <h5>/api/v1/companies</h5>
+            <p>Get all companies</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getcompaniesbtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
+                <p>no params or body is required</p>
+            </div>
+            <div class="card-action" id="getcompaniesbtnload">
+              <button class="btn waves-effect waves-light" id="getcompaniesbtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="getcompany">
+          <blockquote>
+            <h5>/api/v1/companies/:name</h5>
+            <p>Get company by specifying the name of the company</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getcompanybtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
+                <table>
+                  <thead>
+                    <tr>
+                        <th data-field="id">Parameter</th>
+                        <th data-field="name">Value</th>
+                        <th data-field="name">Description</th>
+                        <th data-field="price">Data Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>name</td>
+                     <td>
+                       <div class="input-field col s12">
+                        <input id="getcompanybtnfield" type="text" class="validate">
+                        <label for="password" data-error="please enter a value">Value</label>
+                      </div>
+                     </td>
+                     <td>company name</td>
+                     <td>String</td>
+                   </tr>
+                 </tbody>
+                </table>
+            </div>
+            <div class="card-action" id="getcompanybtnload">
+              <button class="btn waves-effect waves-light" id="getcompanybtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+</body>
+</html>
