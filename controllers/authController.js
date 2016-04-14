@@ -7,8 +7,11 @@ function getGithubLogin (req, res) {
 // GET /auth/github/callback
 function githubCallback (req, res) {
   return passport.authenticate('github', function (err, user, info) {
-    if (err) console.log(err)
-    res.redirect('/users/' + user.github.username)
+    if (err) throw err
+    req.logIn(user, function (err) {
+      if (err) throw err
+      return res.redirect('/users/' + user.github.username)
+    })
   })(req, res)
 }
 
