@@ -11,7 +11,6 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const methodOverride = require('method-override')
-const createProfile = require('./controllers/createProfile')
 
 const expressJWT = require('express-jwt')
 
@@ -70,8 +69,6 @@ app.use(function (req, res, next) {
   global.currentUser = req.user
   next()
 })
-
-app.use('/auth/github/callback', createProfile)
 
 app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
 app.use('/api/v1', apiRoutes)

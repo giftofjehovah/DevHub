@@ -1,12 +1,15 @@
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const Github = require('../models/githubClass')
 
 function showUser (req, res) {
   const username = req.params.username
 
   User.findOne({'github.username': username}, function (err, user) {
     if (err) console.log(err)
-    console.log(user)
+    const countLanguage = new Github()
+    countLanguage.languages = user.data.languages
+    user.data.languages = countLanguage.languagesPercentage()
     res.render('userProfile', {user: user})
   })
 }

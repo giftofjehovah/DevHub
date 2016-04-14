@@ -3,7 +3,9 @@ const Github = require('../models/githubClass')
 const async = require('async')
 
 function createProfile (req, res, next) {
+  console.log('createProfile')
   if (req.user && req.user.profiled === false) {
+    console.log('hi')
     let githubApi = new Github(req.user.github.access_token, req.user.github.username)
     githubApi.getAllRepo(function () {
       async.parallel([
@@ -15,7 +17,6 @@ function createProfile (req, res, next) {
       ], save)
     })
   }
-  next()
   function save (err, result) {
     if (err) console.log(err)
     req.user.data.rockStar = result[0]
@@ -27,8 +28,10 @@ function createProfile (req, res, next) {
     req.user.save(function (err, user) {
       if (err) console.log(err)
       console.log(user)
+      next()
     })
   }
+  next()
 }
 
 module.exports = createProfile
