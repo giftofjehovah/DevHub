@@ -73,7 +73,6 @@ app.use('/auth/github/callback', createProfile)
 
 app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
 app.use('/api/v1', apiRoutes)
-app.use('/api', function (req, res) {})
 app.use('/', loginRoutes)
 app.use('/users', userRoutes)
 app.use('/companies', companyRoutes)
