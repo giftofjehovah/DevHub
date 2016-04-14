@@ -1,4 +1,5 @@
 const passport = require('passport')
+const User = require('../models/user')
 
 function getGithubLogin (req, res) {
   return passport.authenticate('github', {scope: ['user', 'repo']})(req, res)
@@ -6,10 +7,12 @@ function getGithubLogin (req, res) {
 
 // GET /auth/github/callback
 function githubCallback (req, res) {
-  // var gitHubCallback =
-  return passport.authenticate('github', { failureRedirect: '/login', successRedirect: '/createprofile' })(req, res)
-// gitHubCallback(req, res)
+    return passport.authenticate('github', function(err,user,info){
+        if (err) console.log(err)
+        res.redirect('/users/'+user.github.username)
+    })(req,res)
 }
+    
 
 // GET /logout
 function getLogout (req, res) {

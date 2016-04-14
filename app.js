@@ -5,7 +5,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const flash = require('connect-flash')
-// const ejsLayouts = require('express-ejs-layouts')
+const ejsLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -53,6 +53,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
+app.use(ejsLayouts)
 
 require('./config/passport')(passport)
 
@@ -62,10 +63,6 @@ app.use(function (req, res, next) {
 })
 
 app.use('/createprofile', createProfile)
-
-app.get('/', function (req, res) {
-  res.json({user: req.user})
-})
 
 const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
 app.use('/api', function (req, res) {
