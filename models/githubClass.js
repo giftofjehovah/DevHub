@@ -192,17 +192,37 @@ class Github {
     })
   }
 
-  // createHooks (cb) {
-  //   this.repos.forEach(function (repo) {
-  //     let options = {
-  //       url: repo.hooks_url,
-  //       headers: {
-  //         'Authorization': 'token ' + this.access_token,
-  //         'User-Agent': 'request'
-  //       }
-  //     }
-  //   })
-  // }
+  createHooks () {
+    this.repos.forEach((repo) => {
+      let form = {
+        "name": "web",
+        "active": true,
+        "events": [
+          "commit_comment"
+        ],
+        "config": {
+          "url": "http://devhub-.herokuapp.com/webhook/github",
+          "content_type": "json"
+        }
+      }
+      request({
+        url: repo.hooks_url,
+        method: 'POST',
+        headers: {
+          'Authorization': 'token ' + this.access_token,
+          'User-Agent': 'request',
+          'Content-Type': 'application/json'
+        },
+        json: form
+      }, function (err, res, body) {
+        if (!err && res.statusCode === 200) {
+          console.log(body)
+        } else {
+          console.log(err)
+        }
+      })
+    })
+  }
 
 }
 module.exports = Github
