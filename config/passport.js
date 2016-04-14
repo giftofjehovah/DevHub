@@ -12,7 +12,7 @@ module.exports = function (passport) {
 
   passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
-      console.log('deserializing user:', user)
+      // console.log('deserializing user:', user)
       done(err, user)
     })
   })
@@ -90,6 +90,7 @@ module.exports = function (passport) {
           newUser.github.access_token = access_token
           newUser.github.refresh_token = refresh_token
           newUser.github.name = profile._json.name
+          newUser.profiled = false
 
           newUser.save(function (err) {
             var user = newUser

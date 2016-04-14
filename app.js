@@ -66,10 +66,9 @@ require('./config/passport')(passport)
 
 app.use(function (req, res, next) {
   global.currentUser = req.user
+  console.log('global :'+req.user)
   next()
 })
-
-app.use('/auth/github/callback', createProfile)
 
 app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
 app.use('/api/v1', apiRoutes)
