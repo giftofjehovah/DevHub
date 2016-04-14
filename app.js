@@ -43,17 +43,19 @@ app.use(logger('dev'))
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use(bodyParser())
+app.use(bodyParser.urlencoded({extend: true}))
 app.use(session({secret: process.env.SESSIONSECRET}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
-app.use(methodOverride(function (request, response) {
-  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
-    var method = request.body._method
-    delete request.body._method
-    return method
-  }
-}))
+app.use(methodOverride('_method'))
+// app.use(methodOverride(function (request, response) {
+//   if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+//     var method = request.body._method
+//     delete request.body._method
+//     return method
+//   }
+// }))
 
 // Express settings
 app.set('views', path.join(__dirname, 'views'))

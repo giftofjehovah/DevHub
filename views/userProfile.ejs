@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-   <link type="text/css" rel="stylesheet" href="/css/userProfile.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<link type="text/css" rel="stylesheet" href="/css/userProfile.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+  #cards{
+    display: flex;
+    justify-content: space-between;
+  }
+  </style>
 </head>
 
 
@@ -41,85 +47,110 @@
     Plotly.newPlot('myDiv', data);
 </script> -->
 
+<div class="container">
 
-<div id="home" class="jumbotron">
-  <div class= "container text-center" >
-    <h1><%= user.name %></h1>
-    <h3><%= user.username%></h3>
-    <img class="circle" src="http://bit.ly/1SMOT5U">
-      </div>
-      <h4><%= user.location%></h4>
-    <div class="profile-stats">
-    <ul>
-      <li>13<span>Projects</span></li>
-      <li>54<span>Stars</span></li>
-      <li>32<span>Longest Streak</span></li>
-      <li>324<span>Followers</span></li>
-    </ul>
-  </div>
+<div id="home-card" class="row">
+    <div class="col s6 m12 l8 offset-l2">
+        <h3 class="center-align"><b><%= user.github.name %></b></h3>
+    </div>
 </div>
-<div id="about">
+
+<h4 class="center-align"><%= user.github.username %></h4>
+
+<div class="row">
+      <div class="col s12" >
+        <img class="circle" style="margin: 0 auto; width: auto; display: block" src="<%= user.github.avatar_url %>">
+        <h5 class="center-align"><%= user.github.location %></h5>
+      </div>
+</div>
+<div class="row">
+<div class="profile-stats col s12 center-align">
+    <ul>
+
+      <li><%= user.data.rockStar %><span>Stars</span></li>
+      <li><%= user.data.longestStreak %><span>Longest Streak</span></li>
+      <li><%= user.github.followers %><span>Followers</span></li>
+    </ul>
+</div>
+</div>
+
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        <h4>Most recent</h4>
-        <ul>
-      <li>Company: </li>
-      <li>Position: </li>
-      <li>Course: </span></li>
-      <li>School: </span></li>
-      <li>Link to Edit</li>
+      <div class="col s4">
+        <h5>Most recent</h5>
+    <ul>
+      <li>Company : <%= user.workExp.company %></li>
+      <li>Position : <%= user.workExp.company %></li>
+      <li>Course : <%= user.workExp.company %></span></li>
+      <li>School : <%= user.workExp.company %></span></li>
+      <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
     </ul>
       </div>
-      <div class="col-sm-4">
-        <h4>Languages used</h4>
+      <div class="col s4">
+        <h5>Languages used</h5>
         <p>Donut chart here</p>
       </div>
-      <div class="col-sm-4">
-        <h4>Last month's commit activity</h4>
+      <div class="col s4">
+        <h5>Last month's commit activity</h5>
         <p>Commit activity graph here</p>
       </div>
     </div>
   </div>
+
+
+  <div class="row" id="cards">
+        <div class="col s12 m4 l3">
+          <div class="card l">
+            <div class="card-image">
+              <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
+              <span class="card-title">Project 1</span>
+            </div>
+            <div class="card-content">
+              <p>My third project that also does a thing.</p>
+              <p>Languages used: JS, HTML, CSS</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 m4 l3">
+          <div class="card l">
+            <div class="card-image">
+              <img src="http://goo.gl/vKvGc6" alt="project1" class="rounded">
+              <span class="card-title">Project 2</span>
+            </div>
+            <div class="card-content">
+              <p>My third project that also does a thing.</p>
+              <p>Languages used: JS, HTML, CSS</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 m4 l3">
+          <div class="card l">
+            <div class="card-image">
+              <img src="http://goo.gl/38XvhN" alt="project1" class="rounded">
+              <span class="card-title">Project 3</span>
+            </div>
+            <div class="card-content">
+              <p>My third project that also does a thing.</p>
+              <p>Languages used: JS, HTML, CSS</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+
 </div>
 
-<div id="portfolio">
-  <div class="container">
-    <h3>Featured Portfolio</h3>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="thumbnail card">
-          <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
-          <div class="caption">
-            <h4><a href="#">Project 1</a></h4>
-            <p>My first ever coding project</p>
-            <p>Languages used: JS, HTML, CSS</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail card">
-          <img src="http://goo.gl/vKvGc6" alt="project1" class="rounded">
-          <div class="caption">
-            <h4><a href="">Project 2</a></h4>
-            <p>My second project that does a thing</p>
-            <p>Languages used: JS, HTML, CSS</p>
-          </div>
-        </div>
-      </div>
-      <div class=" col-sm-4">
-        <div class="thumbnail card">
-          <img src="http://goo.gl/38XvhN" alt="project1" class="rounded">
-          <div class="caption">
-            <h4><a href="#">Project 3</a></h4>
-            <p>My third project that also does a thing.</p>
-            <p>Languages used: JS, HTML, CSS</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div id="contact">
   <div class="container">
@@ -128,7 +159,7 @@
       <a class="btn btn-info card" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
        <a class="btn btn-info card" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
        <a class="btn btn-info card" target='_blank' href="https://www.linkedin.com"><i class="fa fa-linkedin" ></i> LinkedIn</a>
-       <a class="btn btn-info card" target='_blank' href="https://github.com"><i class="fa fa-github" ></i> GitHub</a>
+       <a class="btn btn-info card" target='_blank' href="https://github.com"><i class="fa fa-envelope" ></i> Email </a>
     </div>
   </div>
 </div>
