@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <br>
 <br>
   <div class="container">
@@ -25,8 +29,17 @@
             </h5>
         </div>
     </div>
-    <div class="row center-align">
-       <a id="home-button" class="btn-large teal accent-4 valign" href="/auth/github"><i class="devicon-github-plain">  </i>Login with Github</a>
+    <div id="div-login-button"class="row center-align">
+       <a id="login-button" class="btn-large teal accent-4 valign" href="/auth/github"><i class="devicon-github-plain">  </i>Login with Github</a>
     </div>
     <br>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+    $("#login-button").click(function(){
+        $("#div-login-button").append($("<div>").addClass("progress").append($("<div>").addClass("indeterminate")))    
+    });
+});
+</script>
