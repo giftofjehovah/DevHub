@@ -1,196 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link type="text/css" rel="stylesheet" href="/css/userProfile.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
- <script src='/js/Chart.min.js'></script>
-  <style>
-  #cards{
-    display: flex;
-    justify-content: space-between;
-  }
-  </style>
 </head>
+<body>
 
 <div class="container">
 
-    <div id="home-card" class="row">
-        <div class="col s6 m12 l8 offset-l2">
-            <h3 class="center-align"><b><%= user.github.name %></b></h3>
-        </div>
-    </div>
-
-    <h4 class="center-align"><%= user.github.username %></h4>
-
-    <div class="row">
-          <div class="col s12" >
-            <img class="circle" style="margin: 0 auto; width: auto; display: block" src="<%= user.github.avatar_url %>">
-            <h5 class="center-align"><%= user.github.location %></h5>
-          </div>
-    </div>
-    <div class="row">
-        <div class="profile-stats col s12 center-align">
-            <ul>
-
-              <li><%= user.data.rockStar %><span>Stars</span></li>
-              <li><%= user.data.longestStreak %><span>Longest Streak</span></li>
-              <li><%= user.github.followers %><span>Followers</span></li>
-            </ul>
-        </div>
+<div id="home-card" class="row">
+    <div class="col s6 m12 l8 offset-l2">
+        <h3 class="center-align"><b><%= user.github.name %></b></h3>
     </div>
 </div>
- 
-<div class="container">
+
+<h4 class="center-align"><%= user.github.username %></h4>
+
+<div class="row">
+      <div class="col s12" >
+        <img class="profile" style="margin: 0 auto; width: auto; display: block" src="<%= user.github.avatar_url %>">
+        <h5 class="center-align"><%= user.github.location %></h5>
+      </div>
+</div>
+<div class="row">
+<div class="profile-stats col s12 center-align">
+    <ul>
+
+      <li><%= user.data.rockStar %><span>Stars</span></li>
+      <li><%= user.data.longestStreak %><span>Longest Streak</span></li>
+      <li><%= user.github.followers %><span>Followers</span></li>
+    </ul>
+</div>
+</div>
+
+
     <div class="row">
       <div class="col s4">
         <h5>Most recent</h5>
     <ul>
-      <li>Company : <%= user.workExp.company %></li>
-      <li>Position : <%= user.workExp.company %></li>
-      <li>Course : <%= user.workExp.company %></li>
-      <li>School : <%= user.workExp.company %></li>
+      <li>Company: <%= user.workExp.company %></li>
+      <li>Position: <%= user.workExp.position %></li>
+      <li>Course: <%= user.education.course %></span></li>
+      <li>School: <%= user.education.school %></span></li>
       <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
     </ul>
       </div>
       <div class="col s4">
         <h5>Languages used</h5>
-            <div>
-              <canvas id="languageDonut  " width="600" height="400"></canvas>
-           
-            <% for (var y in user.data.languages) {%>
-            <%= y %> : <%= user.data.languages[y] %>
-            <%}%>
-            </div>
-
-        </div>
-          <div class="col s4">
-            <h5>Last month's commit activity</h5>
-            <p>Commit activity graph here</p>
-          </div>
+        <p>Donut chart here</p>
+      </div>
+      <div class="col s4">
+        <h5>Last month's commit activity</h5>
+        <p>Commit activity graph here</p>
+      </div>
     </div>
+
+
+
+    <div class="row cards">
+<% for (var i = 0; i < 3; i++){ %>
+        <div class="col s12 m6 l4">
+          <div class="card l">
+            <div class="card-image">
+              <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
+              <span class="card-title"><%= user.data.repos[i].name %></span>
+            </div>
+            <div class="card-action">
+              <p>Coded in: <%= user.data.repos[i].languages %></p>
+            </div>
+          </div>
+        </div>
+      <% } %>
 </div>
 
 
-      <div class="row" id="cards">
-            <div class="col s12 m4 l3">
-              <div class="card l">
-                <div class="card-image">
-                  <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
-                  <span class="card-title">Project 1</span>
-                </div>
-                <div class="card-content">
-                  <p>My third project that also does a thing.</p>
-                  <p>Languages used: JS, HTML, CSS</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
-            </div>
 
-
-            <div class="col s12 m4 l3">
-              <div class="card l">
-                <div class="card-image">
-                  <img src="http://goo.gl/vKvGc6" alt="project1" class="rounded">
-                  <span class="card-title">Project 2</span>
-                </div>
-                <div class="card-content">
-                  <p>My third project that also does a thing.</p>
-                  <p>Languages used: JS, HTML, CSS</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col s12 m4 l3">
-              <div class="card l">
-                <div class="card-image">
-                  <img src="http://goo.gl/38XvhN" alt="project1" class="rounded">
-                  <span class="card-title">Project 3</span>
-                </div>
-                <div class="card-content">
-                  <p>My third project that also does a thing.</p>
-                  <p>Languages used: JS, HTML, CSS</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
-            </div>
-
-    </div>
-
-
-<div id="contact">
-  <div class="container">
-    <h3>Contact</h3>
+<h5>Get in Touch:</h5>
+  <div class="row cards">
     <div>
-      <a class="btn btn-info card" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
-       <a class="btn btn-info card" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
-       <a class="btn btn-info card" target='_blank' href="https://www.linkedin.com"><i class="fa fa-linkedin" ></i> LinkedIn</a>
-       <a class="btn btn-info card" target='_blank' href="https://github.com"><i class="fa fa-envelope" ></i> Email </a>
+      <a class="waves-effect waves-light btn" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://www.linkedin.com"><i class="fa fa-linkedin" ></i> LinkedIn</a>
+       <a class="waves-effect waves-light btn" target='_blank' href="https://github.com"><i class="fa fa-envelope" ></i> Email </a>
     </div>
   </div>
-</div>
 
-  <script type="text/javascript">
-      console.log('asd')
-        console.log("ROar")
-        
-        var languageJSON = <%=user.data.languages%>
-        console.log(languageJSON)
-        var languageArr = []
-        for(var x in languagedParsed){
-            languageArr.push(languageParsed[x])
-        }
-        console.log(languageArr)
-        
-//        var pieData = []
-//        for (var y in languageArr){
-//            
-//            var languageX = {
-//                label: <%=y%>,
-//                value: <%= user.data.languages[y]%>,
-//                color: lanColor(y)
-//            }
-//            pieData.push(languageX)
-//            console.log(languageX)
-//        }
-//        
-//        var languages = user.data.languages
-//
-//          function lanColor(lang) {
-//          if(lang=='Ruby') {
-//            color = "#878BB6"
-//          } else if (lang=='HTML') {
-//            color = "#4ACAB4"
-//          } else if (lang=='Javascript') {
-//            color = "#FF8153"
-//          } else{
-//            color = "#FFEA88"
-//          }
-//            return color
-//          }
-//           var pieOptions = {
-//               segmentShowStroke : true,
-//               segmentStrokeColor : "#fff",
-//               segmentStrokeWidth : 2,
-//               percentageInnerCutout : 50, // This is 0 for Pie charts
-//               animationSteps : 100,
-//               animationEasing : "easeOutBounce",
-//               animateRotate : true,
-//               animateScale : false,
-//           }
-//         var languageDonut= document.getElementById("languageDonut").getContext("2d");
-//         new Chart(languageDonut).Pie(pieData, pieOptions);
-//           Chart.defaults.global.responsive = true;
-</script>
+
+</div>
+</body>
+</html>
