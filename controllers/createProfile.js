@@ -31,7 +31,6 @@ function createProfile (req, res, next) {
       next()
     })
   }
-
 }
 
 module.exports = createProfile
