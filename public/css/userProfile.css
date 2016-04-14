@@ -1,64 +1,6 @@
-body{padding-top: 50px;}
-h3, h4{
-  font-family:'Source Sans Pro', Helvetica, sans-serif, ;
-}
-p{
-  font-family: 'Helvetica', Helvetica, sans-serif;
-}
-.container{
-  padding-top: 50px;
-  min-height: 400px;
-}
-
-/*home*/
-.jumbotron{
-  margin: 0px;}
-#home{
-  background-attachment: fixed;
-  min-height: 500px;
-}
-#home h1{
-  font-family:'Poiret One', cursive, 'Verdana';
-}
 .circle{
-  width: 200px;
+  width: 50px;
   border-radius: 50%;
-}
-/*about*/
-#about{
-
-  background-attachment: fixed;
-}
-
-/*portfolio*/
-#portfolio{
-
-  background-attachment: fixed;
-}
-.thumbnail{
-  min-height: 250px;
-  opacity: .7;
-  border-radius: 15px;
-}
-.thumbnail:hover{
-  opacity: 1;
-  background-color: #e5f9ff;
-}
-.rounded{
-  border-radius: 10px;
-}
-.card{
-  -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  box-shadow: 0 4px 8px 0 rgba(0,0,150,0.2);
-}
-
-/*contact*/
-#contact{
-
-  background-attachment: fixed;
-}
-.btn{
-  margin: 5px;
 }
 
 div.profile-stats ul {
@@ -68,13 +10,12 @@ div.profile-stats ul {
 }
 
 div.profile-stats ul li {
-  color: #efefef;
+  color: blue;
   display: inline-block;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-right: 50px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.7)
 }
 
 div.profile-stats li span {
@@ -90,7 +31,7 @@ div.profile-stats a.follow {
   text-decoration: none;
 }
 
-#cards{
-  display: flex;
+div.cards{
+  display: inline-flex;
   justify-content: space-between;
 }
