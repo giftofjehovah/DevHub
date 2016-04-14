@@ -17,18 +17,18 @@ const mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/devhub'
 const port = process.env.PORT || 3000
 mongoose.connect(mongoUri)
 app.listen(port, function () {
-  console.log('server listening on port ' + port)
+ console.log('server listening on port ' + port)
 })
 
 if (app.get('env') === 'development') {
-  require('dotenv').config()
-  app.use(function (err, req, res, next) {
-    res.status(err.status || 500)
-    res.render('error', {
-      message: err.message,
-      error: err
-    })
-  })
+ require('dotenv').config()
+ app.use(function (err, req, res, next) {
+   res.status(err.status || 500)
+   res.render('error', {
+     message: err.message,
+     error: err
+   })
+ })
 }
 
 // add code here
@@ -41,11 +41,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 app.use(methodOverride(function (request, response) {
-  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
-    var method = request.body._method
-    delete request.body._method
-    return method
-  }
+ if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+   var method = request.body._method
+   delete request.body._method
+   return method
+ }
 }))
 
 // Express settings
@@ -58,15 +58,15 @@ app.use(ejsLayouts)
 require('./config/passport')(passport)
 
 app.use(function (req, res, next) {
-  global.currentUser = req.user
-  next()
+ global.currentUser = req.user
+ next()
 })
 
 app.use('/createprofile', createProfile)
 
 const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
 app.use('/api', function (req, res) {
-  
+
 })
 
 const loginRoutes = require(__dirname + '/config/routes/loginRoutes')
