@@ -9,6 +9,7 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
+
 <body>
 
 <div class="container">
@@ -56,7 +57,18 @@
       </div>
       <div class="col s4">
         <h5>Last month's commit activity</h5>
-        <p>Commit activity graph here</p>
+        <div id="myDiv" style="width: 400px; height: 350px;">
+        </div>
+        <script>
+        var data = [
+          {
+          x: ['4 wks ago', '3 wks ago', '2 wks ago', '1 wk ago'],
+          y: [<%= user.data.activity.week1%>,<%= user.data.activity.week2%>,<%= user.data.activity.week3%>,<%= user.data.activity.week4%>],
+          type: 'scatter'
+          }
+          ];
+          Plotly.newPlot('myDiv', data);
+      </script>
       </div>
     </div>
 
