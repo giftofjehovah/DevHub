@@ -1,26 +1,46 @@
- <nav class = "indigo">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">DevHub</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Home</a></li>
-        <li><a href="/users">Developers</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <% if (currentUser != undefined){ %>
-        <li><a href="./users/" + <%=currentUser.github.username %>>My Profile</a></li>
-        <% } else { %>
-        <li><a class="waves-effect waves-light btn" href="/login">Login</a></li>
-        <% } %>
-      </ul>
-      <ul class="#" id="mobile-demo">
-        <li><a href="#">Home</a></li>
-        <li><a href="./users">Developers</a></li>
-        <li><a href="./companies">Companies</a></li>
-        <% if (currentUser != undefined){ %>
-        <li><a href="./users/" + <%=currentUser.github.username %>>My Profile</a></li>
-        <% } else { %>
-        <li><a class="waves-effect waves-light btn"><i class="material-icons right">Login</i>button</a></li>
-        <% } %>
-      </ul>
-    </div>
-  </nav>
+        <nav class = "indigo">
+        <div class="nav-wrapper" style="padding: 0px 10px">
+          <a href="#" class="brand-logo">DevHub</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+                <form>
+                    <div id="searchbar" class="input-field">
+                      <input id="search" type="search" required placeholder="Search Users/Companies">
+                      <label for="search"><i class="material-icons" id="search-icon">search</i></label>
+                    </div>
+                </form>
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="/users">Developers</a></li>
+            <li><a href="/companies">Companies</a></li>
+            <% if (currentUser != undefined){ %>
+            <li><a class="waves-effect waves-light red lighten-4 black-text btn" href="./users/" + <%=currentUser.github.username%>>My Profile</a></li>
+                         
+            <% } else { %>
+                <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/login"><b>Login</b></a></li>
+            <% } %>
+          </ul>
+
+          <ul class="side-nav" id="mobile-demo">
+                <li>
+                <form>
+                    <div class="input-field teal accent-1">
+                      <input id="search" type="search" required>
+                      <label for="search"><i class="material-icons">search</i></label>
+                      <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="./users">Developers</a></li>
+            <li><a href="./companies">Companies</a></li>
+            <% if (currentUser != undefined){ %>
+            <li><a class="waves-effect waves-light red lighten-4 black-text btn" href="./users/" + <%=currentUser.github.username%>>My Profile</a></li>
+            
+            <% } else { %>
+                <li><a class="waves-effect waves-light teal accent-4 black-text btn" href="/login">Login</a></li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
