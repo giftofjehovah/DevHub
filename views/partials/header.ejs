@@ -11,12 +11,12 @@
                     </div>
                 </form>
             </li>
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/users">Developers</a></li>
             <li><a href="/companies">Companies</a></li>
             <% if (currentUser != undefined){ %>
-            <li><a class="waves-effect waves-light red lighten-4 black-text btn" href="./users/" + <%=currentUser.github.username%>>My Profile</a></li>
-                         
+            <li><a class="red lighten-4 black-text" href="./<%=currentUser.github.username%>">My Profile</a></li>
+            <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/logout">Logout</a></li>                 
             <% } else { %>
                 <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/login"><b>Login</b></a></li>
             <% } %>
@@ -32,11 +32,12 @@
                     </div>
                 </form>
             </li>
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="./users">Developers</a></li>
             <li><a href="./companies">Companies</a></li>
             <% if (currentUser != undefined){ %>
-            <li><a class="waves-effect waves-light red lighten-4 black-text btn" href="./users/" + <%=currentUser.github.username%>>My Profile</a></li>
+            <li><a class="red lighten-4 black-text" href="./users/"<%=currentUser.github.username%>>My Profile</a></li>
+            <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/logout">Logout</a></li>
             
             <% } else { %>
                 <li><a class="waves-effect waves-light teal accent-4 black-text btn" href="/login">Login</a></li>
