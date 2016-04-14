@@ -4,6 +4,7 @@ const usersController = require('../../controllers/usersController')
 
 function authenticatedUser (req, res, next) {
   if (req.isAuthenticated()) return next()
+
   req.flash('errorMessage', 'Login to view your profile')
   res.redirect('/login')
 }
