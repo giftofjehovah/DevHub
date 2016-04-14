@@ -6,7 +6,7 @@ function createProfile (req, res, next) {
   if (req.user && req.user.profiled === false) {
     let githubApi = new Github(req.user.github.access_token, req.user.github.username)
     githubApi.getAllRepo(function () {
-      githubApi.createHooks()
+      // githubApi.createHooks()
       async.parallel([
         githubApi.getRockStar.bind(githubApi),
         githubApi.getActivity.bind(githubApi),
