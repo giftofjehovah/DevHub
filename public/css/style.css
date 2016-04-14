@@ -1,15 +1,12 @@
 body h4 {
   text-align: center;
 }
-
 .size {
   font-size: 30px;
 }
-
 .size-inside {
   font-size: 20px;
 }
-
 .card-top{
   text-align: center;
   height: 250px;
@@ -24,28 +21,30 @@ body h4 {
   width: 135px;
   height: 135px;
 }
-
-.developer{
+.activator .developer{
   border-radius: 50%;
 }
-
 .card-sizer{
   justify-content: center;
 }
-
-.card-content{
+#developer-content{
   text-align: center;
   background-color: #d8d8ff;
 }
-
+#companies-content{
+  text-align: center;
+  background-color: #d8d8ff;
+}
+.card-content #companies-content{
+  text-align: center;
+  background-color: #d8d8ff;
+}
 .languages-display{
   margin: 0 40px;
 }
-
 .card .card-reveal {
   background-color: #d8d8ff;
 }
-
 .card .card-image img .developer{
   border-radius: 50%;
 }
