@@ -12,6 +12,11 @@ const authController = require('../../controllers/authController')
 // router.route('/login')
 //   .get(usersController.getLogin)
 //   .post(usersController.postLogin)
+
+router.get('/login', function(req, res){
+   res.render('login')
+})
+
 router.get('/', function (req, res) {
   res.render('home')
 })

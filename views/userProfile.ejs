@@ -1,53 +1,32 @@
-<div class="container">
-<h2>user.name</h2>
-
-<div id="cover_photo"></div>
-<div id="profile_photo"></div>
-
-<div>
-
-
-</div>
-
-
-          <ul>
-          <li><b>Username: </b> <%= user[i].username %></li>
-          <li><b>Company: </b> <%= user[i].company %></li>
-          <li><b>Blog: </b> <%= user[i].blog %></li>
-          <li><b>Bio: </b> <%= user[i].bio %></li>
-          <li><b>Avatar_url: </b> <%= user[i].avatar_url %></li>
-          <li><b>Languages: </b> <%= user[i].languages %></li>
-          <li><b>Home Page: </b> <%= user[i].html_url %></li>
-          <li><b>Location: </b> <%= user[i].location %></li>
-          <li><b>Followers: </b> <%= user[i].followers %></li>
-          <li><b>Hireable: </b> <%= user[i].hireable %></li>
-          </ul>
-
-          <div class="container">
-          <% include ./partials/userForm %>
-          </div>
-
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+   <link type="text/css" rel="stylesheet" href="/css/userProfile.css">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 
 
 <!-- Activity line chart -->
-<h3>My activity</h3>
+<!-- <h3>My Activity</h3>
 <div class ="container">
   <div id="myDiv" style="width: 480px; height: 400px;">
   </div>
   <script>
   var data = [
     {
-    x: ['2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00'],
-    y: [1, 3, 6],
+      x: ['-4', '-3', '-2','-1'],
+      y: [1, 3, 6, 4],
     type: 'scatter'
     }
     ];
     Plotly.newPlot('myDiv', data);
 </script>
 
-<!-- languages donut chart -->
-<h3>My languages</h3>
+<!Activity line chart -->
+<!-- <h3>My languages</h3>
 <div class ="container">
   <div id="myDiv" style="width: 480px; height: 400px;">
   </div>
@@ -60,4 +39,97 @@
     }
     ];
     Plotly.newPlot('myDiv', data);
-</script>
+</script> -->
+
+
+<div id="home" class="jumbotron">
+  <div class= "container text-center" >
+    <h1><%= user.name %></h1>
+    <h3><%= user.username%></h3>
+    <img class="circle" src="http://bit.ly/1SMOT5U">
+      </div>
+      <h4><%= user.location%></h4>
+    <div class="profile-stats">
+    <ul>
+      <li>13<span>Projects</span></li>
+      <li>54<span>Stars</span></li>
+      <li>32<span>Longest Streak</span></li>
+      <li>324<span>Followers</span></li>
+    </ul>
+  </div>
+</div>
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Most recent</h4>
+        <ul>
+      <li>Company: </li>
+      <li>Position: </li>
+      <li>Course: </span></li>
+      <li>School: </span></li>
+      <li>Link to Edit</li>
+    </ul>
+      </div>
+      <div class="col-sm-4">
+        <h4>Languages used</h4>
+        <p>Donut chart here</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>Last month's commit activity</h4>
+        <p>Commit activity graph here</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="portfolio">
+  <div class="container">
+    <h3>Featured Portfolio</h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="thumbnail card">
+          <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
+          <div class="caption">
+            <h4><a href="#">Project 1</a></h4>
+            <p>My first ever coding project</p>
+            <p>Languages used: JS, HTML, CSS</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail card">
+          <img src="http://goo.gl/vKvGc6" alt="project1" class="rounded">
+          <div class="caption">
+            <h4><a href="">Project 2</a></h4>
+            <p>My second project that does a thing</p>
+            <p>Languages used: JS, HTML, CSS</p>
+          </div>
+        </div>
+      </div>
+      <div class=" col-sm-4">
+        <div class="thumbnail card">
+          <img src="http://goo.gl/38XvhN" alt="project1" class="rounded">
+          <div class="caption">
+            <h4><a href="#">Project 3</a></h4>
+            <p>My third project that also does a thing.</p>
+            <p>Languages used: JS, HTML, CSS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact">
+  <div class="container">
+    <h3>Contact</h3>
+    <div>
+      <a class="btn btn-info card" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
+       <a class="btn btn-info card" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
+       <a class="btn btn-info card" target='_blank' href="https://www.linkedin.com"><i class="fa fa-linkedin" ></i> LinkedIn</a>
+       <a class="btn btn-info card" target='_blank' href="https://github.com"><i class="fa fa-github" ></i> GitHub</a>
+    </div>
+  </div>
+</div>
+</html>
