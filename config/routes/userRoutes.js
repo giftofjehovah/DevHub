@@ -5,11 +5,14 @@ const usersController = require('../../controllers/usersController')
 function authenticatedUser (req, res, next) {
   if (req.isAuthenticated()) return next()
   req.flash('errorMessage', 'Login to view your profile')
-  res.redirect('/auth/github')
+  res.redirect('/login')
 }
 
 router.route('/')
   .get(usersController.indexUsers)
+
+router.route('/authtoken')
+  .get(authenticatedUser, usersController.getAuthToken)
 
 router.route('/:username')
   .get(usersController.showUser)

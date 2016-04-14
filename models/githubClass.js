@@ -131,6 +131,7 @@ class Github {
           let repoSummary = {
             name: repo.name,
             desc: repo.description,
+            html_url: repo.html_url,
             languages: languages
           }
           let mongoRepo = new Repo(repoSummary)

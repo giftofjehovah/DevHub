@@ -18,6 +18,10 @@ router.get('/', function (req, res) {
   res.render('home')
 })
 
+router.get('/api', function (req,res) {
+  res.render('api')
+})
+
 router.route('/auth/github')
   .get(authController.getGithubLogin)
 
