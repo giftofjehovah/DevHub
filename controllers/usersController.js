@@ -5,7 +5,7 @@ const Github = require('../models/githubClass')
 function showUser (req, res) {
   const username = req.params.username
 
-  User.find({'github.username': username}, function (err, user) {
+  User.findOne({'github.username': username}, function (err, user) {
     if (err) console.log(err)
     const countLanguage = new Github()
     countLanguage.languages = user.data.languages
