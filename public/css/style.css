@@ -2,7 +2,6 @@ body h4 {
   text-align: center;
 }
 
-
 .size {
   font-size: 30px;
 }
@@ -25,6 +24,11 @@ body h4 {
   width: 135px;
   height: 135px;
 }
+
+.developer{
+  border-radius: 50%;
+}
+
 .card-sizer{
   justify-content: center;
 }
