@@ -64,7 +64,7 @@ class Github {
           counter++
         } else {
           console.log('error')
-          cb(true)
+          return cb(true)
         }
         if (counter === repos.length) {
           cb(false, this.languages)
@@ -182,8 +182,8 @@ class Github {
             cb(false, this.activity)
           }
         } else {
-          cb(true)
           console.log(error)
+          cb(true)
         }
       })
     })
