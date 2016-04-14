@@ -9,12 +9,9 @@ const authController = require('../../controllers/authController')
 //   .get(usersController.getSignup)
 //   .post(usersController.postSignup)
 //
-// router.route('/login')
-//   .get(usersController.getLogin)
-//   .post(usersController.postLogin)
 
-router.get('/login', function(req, res){
-   res.render('login')
+router.get('/login', function (req, res) {
+  res.render('login')
 })
 
 router.get('/', function (req, res) {
