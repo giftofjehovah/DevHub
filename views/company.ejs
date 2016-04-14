@@ -1,0 +1,35 @@
+<h2>company.name</h2>
+<div class="card xl">
+  <div class="col-s2 card-top">
+    <div class="card-image waves-effect waves-block waves-light">
+       <div class="card-sizer">
+         <img class="activator" src=" <%= company.image %> ">
+       </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4"><%= company.name %><i class="material-icons right">more_vert</i></span>
+    <p>
+    <strong> Industry: </strong> <%= company.industry %>
+    <br>
+      <% for (var i = 0; i < company.stack.length; i++) { %>
+        <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size"></i>
+      <% } %>
+    </p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%= company.name %><i class="material-icons right">close</i></span>
+    <ul>
+      <li><strong> Industry: </strong> <%= company.industry %> </li>
+      <br>
+      <li><strong> Description: </strong> <%= company.description %> </li>
+      <br>
+      <li><strong> Stack: </strong>
+        <% for (var i = 0; i < company.stack.length; i++) { %>
+          <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size-inside"></i>
+        <% } %>
+      </li>
+      <li><strong> Jobs: </strong> <%= company.jobs %> </li>
+    </ul>
+  </div>
+</div>
