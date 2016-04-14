@@ -69,7 +69,7 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/', createProfile)
+app.use('/auth/github/callback', createProfile)
 
 app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
 app.use('/api/v1', apiRoutes)
