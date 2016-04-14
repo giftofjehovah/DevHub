@@ -6,7 +6,7 @@
             <li>
                 <form>
                     <div id="searchbar" class="input-field">
-                      <input id="search" type="search" required placeholder="Search Users/Companies">
+                      <input id="search" type="search" required placeholder="Search">
                       <label for="search"><i class="material-icons" id="search-icon">search</i></label>
                     </div>
                 </form>
@@ -16,7 +16,7 @@
             <li><a href="/companies">Companies</a></li>
             <li><a href="/api">Our API</a></li>
             <% if (currentUser != undefined){ %>
-            <li><a class="red lighten-4 black-text" href="./users/<%=currentUser.github.username%>">My Profile</a></li>
+            <li><a class="red lighten-4 black-text" href="/users/<%=currentUser.github.username%>">My Profile</a></li>
             <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/logout">Logout</a></li>
             <% } else { %>
                 <li><a class="waves-effect waves-light teal accent-4 white-text btn" href="/login"><b>Login</b></a></li>
