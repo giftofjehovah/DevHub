@@ -1,67 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-  <title>Dev Hub</title>
-
-  <link rel="styelsheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<!--<body>-->
-<!--
-  <nav class = "indigo">
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Dev Hub</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/users">Developers</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <li><a href="collapsible.html">About Us</a></li>
-      </ul>
-
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/users">Developers</a></li>
-        <li><a href="/companies">Companies</a></li>
-        <li><a href="collapsible.html">About Us</a></li>
-      </ul>
-    </div>
-  </nav> 
--->
-<script src='Chart.min.js'></script>
 <h4>Developers</h4>
-<div class="row">
+<div class="container">
+<div class="row" id="developers-container">
 
   <% users.forEach( user => { %>
     <div class="col s12 m4 l3">
-      <div class="card s">
+      <div class="card m">
+
         <div class="card-top">
-          <span><h5><%= user.github.username %></h5></span>
+          <span><h5><%= user.github.username %></h4></span>
           <div class="spacer">
             <br>
             <br>
           </div>
         <div class="card-sizer valign-wrapper">
            <div class="card-image waves-effect waves-block waves-light valign">
-             <img class="activator developer" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSG6dQDBnjtwKjpzKscj13tq71esfjcT-LqCLibMz8jTuSpizTEJRhgDA">
+             <img class="activator developer" src="<%= user.github.avatar_url %>">
            </div>
         </div>
 
       </div>
 
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">more_vert</i></span>
-        <p>
-        <strong> Name: </strong> <%= user.github.username %>
-        <br>
-
+      <div class="card-content" id="companies-content">
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
         <br>
         <strong> Rockstar: </strong> <%= user.data.rockStar %>
+        <br>
         <strong> Longest Streak: </strong> <%= user.data.longestStreak %>
         </p>
       </div>
@@ -70,49 +38,34 @@
         <span class="card-title grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">close</i></span>
         <ul>
           <li>
-             <strong> Stack:
-              <% for (var z in  user.data.languages ) {%>
+            <strong> Stack:
+              <% for (var z in user.data.languages) {%>
+
               <i class="devicon-<%= z.toLowerCase() %>-plain colored size"></i>
-              
               <%}%>
-            </strong>
+          </strong>
           </li>
           <li>
              <strong> Education:
+               <%# for (var x in user.data.education) %>
+               <%#= x %> : <%#=user.data.education[x] %>
              </strong>
            </li>
            <li>
              <strong> Work Experience:
+               <%# for (var y in user.data.workExp) %>
+               <%#= y %> : <%#=user.data.workExp[y] %>
              </strong>
            </li>
         </ul>
       </div>
+
+    </div>
     </div>
     <% }) %>
   </div>
+  </div>
   <br>
-</div>
-
-<!-- <footer class="page-footer indigo">
-  <div class="container">
-    <div class="row">
-      <h6 class="white-text center bold">Company</h6>
-      <ul class="center">
-        <li><a class="grey-text text-lighten-3" href="#!">API</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Our Stack</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-copyright">
-    <div class="container">
-    © 2016 Copyright DevHub
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-    </div>
-  </div>
-</footer> -->
 
 
 <!-- jQuery is required by Materialize to function -->
@@ -125,6 +78,3 @@
     $(".button-collapse").sideNav();
   });
 </script>
-<!--
-</body>
-</html> -->
