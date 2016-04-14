@@ -69,8 +69,8 @@ div.profile-stats ul {
 
 div.profile-stats ul li {
   color: #efefef;
-  display: block;
-  float: right;
+  display: inline-block;
+  text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-right: 50px;
@@ -88,4 +88,9 @@ div.profile-stats a.follow {
   float: right;color: #ffffff;
   margin-top: 5px;
   text-decoration: none;
+}
+
+#cards{
+  display: flex;
+  justify-content: space-between;
 }

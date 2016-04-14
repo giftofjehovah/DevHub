@@ -21,6 +21,7 @@ router.route('/:username')
 
 router.route('/:username/edit')
   .get(authenticatedUser, usersController.editUser)
+  .post(usersController.updateUser)
 // router.route('/USERS/:ID') to edit own profile => see usersController
 //   .get(authenticatedUser, usersController.getUser)
 

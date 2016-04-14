@@ -23,17 +23,33 @@ function indexUsers (req, res) {
 
 function updateUser (req, res) {
   const username = req.params.username
+  console.log(req.body, username)
 
-  User.findOneAndUpdate({'github.username': username}, {workExp: req.body.workExp, education: req.body.education}, {}, function (err, user) {
-    if (err) console.log(err)
-    res.redirect('/users/' + username)
-  })
+  User.findOneAndUpdate(
+    {'github.username': username},
+    {
+      workExp: {
+        company: req.body.company,
+        position: req.body.position,
+        start: req.body.start_yr,
+        end: req.body.end_yr
+      },
+      education: {
+        school: req.body.school,
+        course: req.body.course,
+        start: req.body.start_yr,
+        end: req.body.end_yr
+      }
+    },
+    function (err, user) {
+      if (err) return console.log(err)
+      res.redirect('/users/' + username)
+    })
 }
 
 function editUser (req, res) {
-  const username = req.params.username
-
-  User.find({'github.username': username}, function (err, user) {
+  // const username = req.params.username
+  User.findById(req.user.id, function (err, user) {
     if (err) console.log(err)
     res.render('userForm', {user: user})
   })
