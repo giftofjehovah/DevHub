@@ -7,14 +7,14 @@ const userSchema = mongoose.Schema({
   workExp: {
     company: String,
     position: String,
-    start: Date,
-    end: Date
+    start_work: Date,
+    end_work: Date
   },
   education: {
     school: String,
     course: String,
-    start: Date,
-    end: Date
+    start_edu: Date,
+    end_edu: Date
   },
   local: {
     password: String

@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link type="text/css" rel="stylesheet" href="/css/userProfile.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <style>
-  #cards{
-    display: flex;
-    justify-content: space-between;
-  }
-  </style>
-</head>
 
+</head>
+<body>
 
 <!-- Activity line chart -->
 <!-- <h3>My Activity</h3>
@@ -74,15 +69,17 @@
 </div>
 </div>
 
-  <div class="container">
+
     <div class="row">
       <div class="col s4">
         <h5>Most recent</h5>
     <ul>
-      <li>Company : <%= user.workExp.company %></li>
-      <li>Position : <%= user.workExp.company %></li>
-      <li>Course : <%= user.workExp.company %></span></li>
-      <li>School : <%= user.workExp.company %></span></li>
+      <li>Company: <%= user.workExp.company %></li>
+      <li>Position: <%= user.workExp.company %></li>
+      <li><%= user.workExp.start_work %> to <%= user.workExp.end_work %></li>
+      <li>Course: <%= user.workExp.company %></span></li>
+      <li>School: <%= user.workExp.company %></span></li>
+      <li><%= user.education.start_edu %> to <%= user.education.end_edu %></li>
       <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
     </ul>
       </div>
@@ -95,11 +92,12 @@
         <p>Commit activity graph here</p>
       </div>
     </div>
-  </div>
 
 
-  <div class="row" id="cards">
-        <div class="col s12 m4 l3">
+
+    <div class="row cards">
+
+        <div class="col s12 m6 l4">
           <div class="card l">
             <div class="card-image">
               <img src="http://goo.gl/PFsf9I" alt="project1" class="rounded">
@@ -116,7 +114,7 @@
         </div>
 
 
-        <div class="col s12 m4 l3">
+        <div class="col s12 m6 l4">
           <div class="card l">
             <div class="card-image">
               <img src="http://goo.gl/vKvGc6" alt="project1" class="rounded">
@@ -133,7 +131,7 @@
         </div>
 
 
-        <div class="col s12 m4 l3">
+        <div class="col s12 m6 l4">
           <div class="card l">
             <div class="card-image">
               <img src="http://goo.gl/38XvhN" alt="project1" class="rounded">
@@ -152,9 +150,9 @@
 </div>
 
 
-<div id="contact">
+
   <div class="container">
-    <h3>Contact</h3>
+    <h5>Get in Touch:</h5>
     <div>
       <a class="btn btn-info card" target='_blank' href="https://www.facebook.com"><i class="fa fa-facebook" ></i> Facebook</a>
        <a class="btn btn-info card" target='_blank' href="https://www.twitter.com"><i class="fa fa-twitter" ></i> Twitter</a>
@@ -162,5 +160,8 @@
        <a class="btn btn-info card" target='_blank' href="https://github.com"><i class="fa fa-envelope" ></i> Email </a>
     </div>
   </div>
+
+
 </div>
+</body>
 </html>

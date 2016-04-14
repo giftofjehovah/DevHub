@@ -1,11 +1,11 @@
-<h2>Edit Work Experience and Education</h2>
-
 <form method="POST" action=<%= "/users/" + user.github.username + "?_method=PUT" %>>
 
-  <div class="row">
-      <form class="col s12">
-        <div class="row">
+
+  <div class="container">
+
   <!-- Work Experience -->
+<h5>Work Experience</h5>
+<br>
   <div class="input-field col s6">
     <input placeholder="Company Name" name="company" type="text" class="valnameate">
     <label for="workExp[name]">Most recent company:</label>
@@ -15,16 +15,18 @@
     <label for="workExp[position]">Most recent position:</label>
   </div>
   <div class="input-field col s6">
-      <input name="start" type="date" class="datepicker">
-      <label for="workExp[start]">Start Year:</label>
+      <input name="start_work" type="date" class="datepicker">
+      <label for="workExp[start]">Start Date:</label>
   </div>
   <div class="input-field col s6">
-      <input name="end" type="date" class="datepicker">
-      <label for="workExp[end]">End Year:</label>
+      <input name="end_work" type="date" class="datepicker">
+      <label for="workExp[end]">End Date:</label>
   </div>
+  <br>
 
     <!-- Education -->
-
+<h5>Education</h5>
+<br>
   <div class="input-field col s6">
       <input placeholder="School Name" name="school" type="text" class="valnameate" >
       <label for="education[school]">Most recent school:</label>
@@ -34,27 +36,24 @@
       <label for="education[course]">Most recent course:</label>
   </div>
   <div class="input-field col s6">
-      <input name="start" type="date" class="datepicker">
-      <label for="education[start]"></label>
+      <input name="start_edu" type="date" class="datepicker">
+      <label for="education[start]">Start Date:</label>
   </div>
   <div class="input-field col s6">
-      <input name="end" type="date" class="datepicker">
-      <label for="education[end]"></label>
-      <input type="date" class="datepicker">
+      <input name="end_edu" type="date" class="datepicker">
+      <label for="education[end]">End Date:</label>
   </div>
+  <br>
 
   <div class="form-group col-md-4">
     <button type="submit" class="btn btn-primary col-md-12">Edit</button>
   </div>
 
 </div>
-</form>
-</div>
 <script>
 $('.datepicker').pickadate({
- selectMonths: true, // Creates a dropdown to control month
- selectYears: 15 // Creates a dropdown of 15 years to control year
- console.log('hello')
+ selectMonths: true,
+ selectYears: 15
 })
 </script>
 </form>
