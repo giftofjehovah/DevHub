@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,7 @@
     <div class="col s12 m4 l3">
       <div class="card s">
         <div class="card-top">
-          <span><h5><%= user.github.username %></h4></span>
+          <span><h5><%= user.github.username %></h5></span>
           <div class="spacer">
             <br>
             <br>
@@ -70,7 +70,12 @@
         <span class="card-title grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">close</i></span>
         <ul>
           <li>
-         
+             <strong> Stack:
+              <% for (var z in  user.data.languages ) {%>
+              <i class="devicon-<%= z.toLowerCase() %>-plain colored size"></i>
+              
+              <%}%>
+            </strong>
           </li>
           <li>
              <strong> Education:
