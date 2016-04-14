@@ -24,9 +24,9 @@
     </div>
   </nav>
 
-  <div class="row">
-    <div class="col s2 grey lighten-5">
-      <div class="container">
+  <div class="row grey lighten-5">
+    <div class="col m3 l2 grey lighten-5 hide-on-small-only">
+      <div class="container" style="position: fixed;">
         <div class="section">
           <h5>Documentation</h5>
           <a href="#doc">Getting Started</a>
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="col s7 grey lighten-5">
+    <div class="col s12 m9 l10 grey lighten-5">
       <div class="container">
         <div class="section" id="doc">
           <blockquote>
@@ -61,6 +61,8 @@
           </p>
         </div>
 
+        <div class="divider"></div>
+
         <div class="section" id="getusers">
           <blockquote>
             <h5>/api/v1/users</h5>
@@ -69,7 +71,8 @@
           <div class="card grey lighten-3">
             <div class="card-content black-text" id="getusersbtncard">
                 <span class="card-title">Header</span>
-                <p>send token</p>
+                <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+                <br>
                 <span class="card-title">Body</span>
                 <p>no params or body is required</p>
             </div>
@@ -88,6 +91,10 @@
           </blockquote>
           <div class="card grey lighten-3">
             <div class="card-content black-text" id="getuserbtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
                 <table>
                   <thead>
                     <tr>
@@ -119,11 +126,71 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="col s3 grey darken-3">
-      <div class="container">
-        asdas
+
+        <div class="section" id="getcompanies">
+          <blockquote>
+            <h5>/api/v1/companies</h5>
+            <p>Get all companies</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getcompaniesbtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
+                <p>no params or body is required</p>
+            </div>
+            <div class="card-action" id="getcompaniesbtnload">
+              <button class="btn waves-effect waves-light" id="getcompaniesbtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="getcompany">
+          <blockquote>
+            <h5>/api/v1/companies/:name</h5>
+            <p>Get company by specifying the name of the company</p>
+          </blockquote>
+          <div class="card grey lighten-3">
+            <div class="card-content black-text" id="getcompanybtncard">
+              <span class="card-title">Header</span>
+              <p>Authorization: 'Bearer qwertyuiop123asdfghj'</p>
+              <br>
+              <span class="card-title">Body</span>
+                <table>
+                  <thead>
+                    <tr>
+                        <th data-field="id">Parameter</th>
+                        <th data-field="name">Value</th>
+                        <th data-field="name">Description</th>
+                        <th data-field="price">Data Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>name</td>
+                     <td>
+                       <div class="input-field col s12">
+                        <input id="getcompanybtnfield" type="text" class="validate">
+                        <label for="password" data-error="please enter a value">Value</label>
+                      </div>
+                     </td>
+                     <td>company name</td>
+                     <td>String</td>
+                   </tr>
+                 </tbody>
+                </table>
+            </div>
+            <div class="card-action" id="getcompanybtnload">
+              <button class="btn waves-effect waves-light" id="getcompanybtn" type="submit" name="action">Try It!
+               <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
