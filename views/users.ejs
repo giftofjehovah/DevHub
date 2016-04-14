@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -31,46 +31,70 @@
         <li><a href="collapsible.html">About Us</a></li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
+<script src='Chart.min.js'></script>
+<h4>Developers</h4>
+<div class="row">
 
-<h2>Developers</h2>
   <% users.forEach( user => { %>
-    <div class="card xl">
-      <div class="col-s2 card-top">
-        <div class="card-image waves-effect waves-block waves-light">
-           <div class="card-sizer">
-             <img class="developer" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSG6dQDBnjtwKjpzKscj13tq71esfjcT-LqCLibMz8jTuSpizTEJRhgDA">
+    <div class="col s12 m4 l3">
+      <div class="card s">
+        <div class="card-top">
+          <span><h5><%= user.github.username %></h4></span>
+          <div class="spacer">
+            <br>
+            <br>
+          </div>
+        <div class="card-sizer valign-wrapper">
+           <div class="card-image waves-effect waves-block waves-light valign">
+             <img class="activator developer" src=" https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSG6dQDBnjtwKjpzKscj13tq71esfjcT-LqCLibMz8jTuSpizTEJRhgDA">
            </div>
         </div>
+
       </div>
+
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= user.name %><i class="material-icons right">more_vert</i></span>
+        <span class="card-title activator grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">more_vert</i></span>
         <p>
-        <strong> Name: </strong> <%= user.name %>
+        <strong> Name: </strong> <%= user.github.username %>
         <br>
-        <% for (var i = 0; i < user.languages.length; i++) { %>
-          <i class="devicon-<%= user.languages[i].toLowerCase() %>-plain colored size"></i>
-        <% } %>
+
         <br>
-        <strong> Rockstar: </strong> <%= user.rockstar %>
+        <strong> Rockstar: </strong> <%= user.data.rockStar %>
+        <strong> Longest Streak: </strong> <%= user.data.longestStreak %>
         </p>
       </div>
+
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><%= user.name %><i class="material-icons right">close</i></span>
+        <span class="card-title grey-text text-darken-4"><%= user.github.username %><i class="material-icons right">close</i></span>
         <ul>
-          <li><strong> Education: </strong> <%= user.education %></li>
-          <li><strong> Work Experience: </strong> <%= user.workexp %></li>
-          <li><strong> Stack: </strong>
-            <% for (var i = 0; i < user.languages.length; i++) { %>
-              <i class="devicon-<%= user.languages[i].toLowerCase() %>-plain colored size-inside"></i>
-            <% } %>
+          <li>
+            <strong> Stack:
+              <% for (var z in user.data.languages) %>
+              <i class="devicon-<%= z.toLowerCase() %>-plain colored size"></i>
+            </strong>
+          </li>
+          <li>
+             <strong> Education:
+               <%# for (var x in user.data.education) %>
+               <%#= x %> : <%#=user.data.education[x] %>
+             </strong>
+           </li>
+           <li>
+             <strong> Work Experience:
+               <%# for (var y in user.data.workExp) %>
+               <%#= y %> : <%#=user.data.workExp[y] %>
+             </strong>
+           </li>
         </ul>
       </div>
     </div>
-  <% }) %>
-<br>
+    <% }) %>
+  </div>
+  <br>
+</div>
 
-<footer class="page-footer indigo">
+<!-- <footer class="page-footer indigo">
   <div class="container">
     <div class="row">
       <h6 class="white-text center bold">Company</h6>
@@ -86,10 +110,10 @@
   <div class="footer-copyright">
     <div class="container">
     © 2016 Copyright DevHub
-    <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
-</footer>
+</footer> -->
 
 
 <!-- jQuery is required by Materialize to function -->
@@ -102,6 +126,6 @@
     $(".button-collapse").sideNav();
   });
 </script>
-
+<!--
 </body>
-</html>
+</html> -->

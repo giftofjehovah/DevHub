@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
   <link type="text/css" rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <nav class = "indigo">
@@ -31,66 +30,70 @@
         <li><a href="collapsible.html">About Us</a></li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
 
   <h4>Companies</h4>
   <div class="row">
 
     <% companies.forEach( company => { %>
       <div class="col s12 m4 l3">
-      <div class="card s">
-        <div class="card-top">
-          <span><h5><%= company.name %></h4></span>
-          <div class="spacer">
-            <br>
-            <br>
+        <div class="card s">
+          <div class="card-top">
+            <span><h5><%= company.name %></h4></span>
+            <div class="spacer">
+              <br>
+              <br>
+            </div>
+
+            <div class="card-sizer valign-wrapper">
+              <div class="card-image waves-effect waves-block waves-light valign">
+                   <img class="activator" src=" <%= company.image %> ">
+               </div>
+            </div>
+
+            <div class="spacer">
+              <br>
+              <br>
+            </div>
+            <span><%= company.industry %></span>
+            <div class="spacer">&nbsp;</div>
           </div>
-          <div class="card-sizer valign-wrapper">
-            <div class="card-image waves-effect waves-block waves-light valign">
-                 <img class="activator" src=" <%= company.image %> ">
-             </div>
-          </div>
-          <div class="spacer">
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+            <p>
             <br>
-            <br>
-          </div>
-          <span><%= company.industry %></span>
-          <div class="spacer">&nbsp;</div>
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
-          <p>
-          <br>
-          <div class="languages-display">
-            <% for (var i = 0; i < company.stack.length; i++) { %>
-              <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size"></i>
-            <% } %>
-          </div>
-          </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%= company.name %><i class="material-icons right">close</i></span>
-          <ul>
-            <li><strong> Industry: </strong> <%= company.industry %> </li>
-            <br>
-            <li><strong> Description: </strong> <%= company.description %> </li>
-            <br>
-            <li><strong> Stack: </strong>
+            <div class="languages-display">
               <% for (var i = 0; i < company.stack.length; i++) { %>
-                <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size-inside"></i>
+                <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size"></i>
               <% } %>
-            </li>
-            <li><strong> Jobs: </strong> <%= company.jobs %> </li>
-          </ul>
+            </div>
+            </p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= company.name %><i class="material-icons right">close</i></span>
+            <ul>
+              <li><strong> Industry: </strong> <%= company.industry %> </li>
+              <br>
+              <li><strong> Description: </strong> <%= company.description %> </li>
+              <br>
+              <li><strong> Stack: </strong>
+                <% for (var i = 0; i < company.stack.length; i++) { %>
+                  <i class="devicon-<%= company.stack[i].toLowerCase() %>-plain colored size-inside"></i>
+                <% } %>
+              </li>
+              <li><strong> Jobs: </strong> <%= company.jobs %> </li>
+            </ul>
+          </div>
         </div>
-      </div>
       </div>
     <% }) %>
 
   </div>
   <br>
 
-<footer class="page-footer indigo">
+<!-- <footer class="page-footer indigo">
   <div class="container">
     <div class="row">
       <h6 class="white-text center bold">Company</h6>
@@ -106,10 +109,10 @@
   <div class="footer-copyright">
     <div class="container">
     © 2016 Copyright DevHub
-    <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
-</footer>
+</footer> -->
 
 
 <!-- jQuery is required by Materialize to function -->
@@ -122,6 +125,6 @@
     $(".button-collapse").sideNav();
   });
 </script>
-
+<!--
 </body>
-</html>
+</html> -->
