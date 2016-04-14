@@ -1,16 +1,16 @@
 [
   {
-    "name": "AirBnB",
-    "image": "https://a2.muscache.com/airbnb/static/logos/belo-200x200-4d851c5b28f61931bf1df28dd15e60ef.png",
-    "industry": ["Hospitality", "Travel"],
-    "description": "Provide home stay.",
-    "stack": ["Ruby", "Rails", "JS", "Java", "Hadoop"],
-    "jobs": ["Software Engineer, Android", "Software Engineer, Booking Experience"]
+    "name": "Dropbox",
+    "image": "http://image005.flaticon.com/28/svg/34/34341.svg",
+    "industry": ["Cloud Storage"],
+    "description": "Save everything.",
+    "stack": ["Python"],
+    "jobs": ["Software Engineer"]
   },
 
   {
     "name": "Facebook",
-    "image": "http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/t/55a6e39be4b0e13bc07f93a1/1437000604121/",
+    "image": "http://image005.flaticon.com/28/svg/33/33702.svg",
     "industry": ["Social Media", "Networking"],
     "description": "Connecting people.",
     "stack": ["PHP", "React"],
@@ -19,28 +19,28 @@
 
   {
     "name": "Google",
-    "image": "https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png",
+    "image": "http://image005.flaticon.com/28/svg/33/33975.svg",
     "industry": ["Software", "Search"],
     "description": "The only search engine",
-    "stack": ["JS", "GO"],
+    "stack": ["Javascript", "GO"],
     "jobs": ["Mobile Application Developer", "Software Engineer"]
   },
 
   {
     "name": "Twitter",
-    "image": "https://pbs.twimg.com/profile_images/378800000620494787/f542336188a7c3107ebf2df154de5796_400x400.png",
+    "image": "http://image005.flaticon.com/28/svg/34/34238.svg",
     "industry": ["Social Media", "Network"],
     "description": "Tweet away.",
-    "stack": ["Mustache", "Rails", "Scala", "Hadoop"],
+    "stack": ["Ruby", "Rails"],
     "jobs": ["Mobile Application Developer", "Software Engineer"]
   },
 
   {
     "name": "Github",
-    "image": "https://cdn.tutsplus.com/net/uploads/2013/08/github-collab-retina-preview.gif",
+    "image": "http://image005.flaticon.com/28/svg/33/33600.svg",
     "industry": ["Developer Tools"],
     "description": "How people build software.",
-    "stack": ["Rails", "Ruby", "Sinatra"],
+    "stack": ["Rails", "Ruby"],
     "jobs": ["Enterprise Support Engineer", "Backend Engineer"]
   }
 

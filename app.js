@@ -5,13 +5,14 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const flash = require('connect-flash')
-// const ejsLayouts = require('express-ejs-layouts')
+const ejsLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const createProfile = require('./controllers/createProfile')
+
 const expressJWT = require('express-jwt')
 
 const apiRoutes = require(__dirname + '/config/routes/apiRoutes')
@@ -59,6 +60,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
+app.use(ejsLayouts)
 
 require('./config/passport')(passport)
 
@@ -67,10 +69,11 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/createprofile', createProfile)
+app.use('/', createProfile)
 
 app.use('/api/v1', expressJWT({secret: process.env.JWTSECRET}))
 app.use('/api/v1', apiRoutes)
+app.use('/api', function (req, res) {})
 app.use('/', loginRoutes)
 app.use('/users', userRoutes)
 app.use('/companies', companyRoutes)

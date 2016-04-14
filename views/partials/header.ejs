@@ -1,1 +1,26 @@
-<title>Dev Hub</title>
+ <nav class = "indigo">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">DevHub</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+        <li><a href="/users">Developers</a></li>
+        <li><a href="/companies">Companies</a></li>
+        <% if (currentUser != undefined){ %>
+        <li><a href="./users/" + <%=currentUser.github.username %>>My Profile</a></li>
+        <% } else { %>
+        <li><a class="waves-effect waves-light btn" href="/login">Login</a></li>
+        <% } %>
+      </ul>
+      <ul class="#" id="mobile-demo">
+        <li><a href="#">Home</a></li>
+        <li><a href="./users">Developers</a></li>
+        <li><a href="./companies">Companies</a></li>
+        <% if (currentUser != undefined){ %>
+        <li><a href="./users/" + <%=currentUser.github.username %>>My Profile</a></li>
+        <% } else { %>
+        <li><a class="waves-effect waves-light btn"><i class="material-icons right">Login</i>button</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>

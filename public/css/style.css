@@ -1,0 +1,47 @@
+body h4 {
+  text-align: center;
+}
+
+
+.size {
+  font-size: 30px;
+}
+
+.size-inside {
+  font-size: 20px;
+}
+
+.card-top{
+  text-align: center;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+/*.img-size{
+  width: 135px;
+  height: 135px;
+}*/
+.activator{
+  width: 135px;
+  height: 135px;
+}
+.card-sizer{
+  justify-content: center;
+}
+
+.card-content{
+  text-align: center;
+  background-color: #d8d8ff;
+}
+
+.languages-display{
+  margin: 0 40px;
+}
+
+.card .card-reveal {
+  background-color: #d8d8ff;
+}
+
+.card .card-image img .developer{
+  border-radius: 50%;
+}
