@@ -19,9 +19,9 @@ function githubCallback (req, res) {
 
 // GET /logout
 function getLogout (req, res) {
-req.session.destroy(function (err) {
-        res.redirect('/'); //Inside a callback… bulletproof!
-  });
+  req.session.destroy(function (err) {
+    res.redirect('/') // Inside a callback… bulletproof!
+  })
 }
 
 module.exports = {

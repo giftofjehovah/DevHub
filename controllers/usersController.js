@@ -5,13 +5,15 @@ const Github = require('../models/githubClass')
 function showUser (req, res) {
   const username = req.params.username
 
-  User.findOne({'github.username': username}, function (err, user) {
-    if (err) console.log(err)
-    const countLanguage = new Github()
-    countLanguage.languages = user.data.languages
-    user.data.languages = countLanguage.languagesPercentage()
-    res.render('userProfile', {user: user})
-  })
+  User.findOne({'github.username': username})
+    .populate('data.repos')
+    .exec(function (err, user) {
+      if (err) console.log(err)
+      const countLanguage = new Github()
+      countLanguage.languages = user.data.languages
+      user.data.languages = countLanguage.languagesPercentage()
+      res.render('userProfile', {user: user})
+    })
 }
 
 function indexUsers (req, res) {

@@ -135,7 +135,10 @@ class Github {
             languages: languages
           }
           let mongoRepo = new Repo(repoSummary)
-          this.repoSummary.push(mongoRepo)
+          mongoRepo.save((err, repo) => {
+            if (err) throw err
+            this.repoSummary.push(repo._id)
+          })
           if (counter === this.repos.length) {
             cb(false, this.repoSummary)
           }
@@ -188,6 +191,18 @@ class Github {
       })
     })
   }
+
+  // createHooks (cb) {
+  //   this.repos.forEach(function (repo) {
+  //     let options = {
+  //       url: repo.hooks_url,
+  //       headers: {
+  //         'Authorization': 'token ' + this.access_token,
+  //         'User-Agent': 'request'
+  //       }
+  //     }
+  //   })
+  // }
 
 }
 module.exports = Github
