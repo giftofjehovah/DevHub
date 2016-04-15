@@ -67,7 +67,7 @@ module.exports = function (passport) {
     callbackURL: 'http://devhub-.herokuapp.com/auth/github/callback'
   },
     function (access_token, refresh_token, profile, done) {
-      User.findOne({ 'email': profile._json.email }, function (err, user) {
+      User.findOne({ 'github.username': profile._json.login }, function (err, user) {
         if (err) {
           console.log(err) // handle errors!
         }
