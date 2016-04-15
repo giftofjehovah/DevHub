@@ -1,4 +1,4 @@
-var baseUrl = 'http://localhost:3000/api/v1/'
+var baseUrl = 'http://devhub-.herokuapp.com/api/v1/'
 function setHeader (xhr) {
   xhr.setRequestHeader('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImdpZnRvZmplaG92YWgiLCJfaWQiOiI1NzBkYmIzMTkzNWZlZDA1Y2MzNTUxMzMiLCJpYXQiOjE0NjA1NTI4MTJ9.4moKMUqyu5Az59ldE3xPajN0HWiH6YsEmJGlAlFmP4s')
 }
