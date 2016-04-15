@@ -1,5 +1,5 @@
 {
-	"undefined": "mongodb://localhost/devhub",
-	"dev": "mongodb://localhost/devhub",
-	"prod": "process.env.MONGOLAB_URI"
+	"undefined": "heroku_35f85pcp:1dmd43rnh4ngeqa0b48ri76vi1@ds061375.mlab.com:61375/heroku_35f85pcp",
+	"dev": "heroku_35f85pcp:1dmd43rnh4ngeqa0b48ri76vi1@ds061375.mlab.com:61375/heroku_35f85pcp",
+	"prod": "heroku_35f85pcp:1dmd43rnh4ngeqa0b48ri76vi1@ds061375.mlab.com:61375/heroku_35f85pcp"
 }
