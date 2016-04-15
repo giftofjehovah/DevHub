@@ -1,5 +1,5 @@
 {
 	"undefined": "mongodb://localhost/devhub",
 	"dev": "mongodb://localhost/devhub",
-	"prod": process.env.MONGOLAB_URI
+	"prod": "process.env.MONGOLAB_URI"
 }
