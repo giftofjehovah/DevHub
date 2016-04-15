@@ -41,8 +41,9 @@
 
 
     <div class="row">
+
       <div class="col s4">
-        <h5>Most recent</h5>
+        <h5 class="center-align">Most recent</h5>
     <ul>
       <li>Company: <%= user.workExp.company %></li>
       <li>Position: <%= user.workExp.position %></li>
@@ -51,13 +52,10 @@
       <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
     </ul>
       </div>
+
       <div class="col s4">
-        <h5>Languages used</h5>
-        <p>Donut chart here</p>
-      </div>
-      <div class="col s4">
-        <h5>Last month's commit activity</h5>
-        <div id="myDiv" style="width: 400px; height: 350px;">
+        <h5 class="center-align">Last month's commit activity</h5>
+        <div id="line" style="width: 400px; height: 350px; margin-left:0px">
         </div>
         <script>
         var data = [
@@ -67,9 +65,38 @@
           type: 'scatter'
           }
           ];
-          Plotly.newPlot('myDiv', data);
+          Plotly.newPlot('line', data);
       </script>
       </div>
+
+      <div class="col s4">
+        <h5 class="center-align">Languages used</h5>
+          <div id="donut" style="width: 400px; height: 350px; margin-right:0px">
+          </div>
+          <script>
+            var lang = <%- JSON.stringify(user.data.languages)%>
+            var percent = []
+            var key = []
+            for (var k in lang)
+            {
+              percent.push(lang[k])
+              key.push(k)
+            }
+            var data = [{
+            values: percent,
+            labels: key,
+            type: 'pie',
+            hole: .4
+            }];
+
+            var layout = {
+            height: 380,
+            width: 480
+            };
+            Plotly.newPlot('donut', data, layout);
+        </script>
+      </div>
+
     </div>
 
 
