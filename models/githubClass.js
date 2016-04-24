@@ -14,6 +14,7 @@ class Github {
     this.repoSummary = []
     this.longestStreak = ''
     this.activity = {}
+    this.email = ''
   }
 
   getAllRepo (cb) {
@@ -32,6 +33,25 @@ class Github {
         cb(this.repos)
       } else {
         console.log('error')
+      }
+    })
+  }
+
+  getEmails (cb) {
+    let options = {
+      url: 'https://api.github.com/user/emails',
+      headers: {
+        'Authorization': 'token ' + this.access_token,
+        'User-Agent': 'request'
+      }
+    }
+
+    request.get(options, (error, response, body) => {
+      if (!error && response.statusCode === 200) {
+        this.email = JSON.parse(body)[0].email
+        cb(false, this.email)
+      } else {
+        cb(true)
       }
     })
   }
@@ -192,37 +212,37 @@ class Github {
     })
   }
 
-  createHooks () {
-    this.repos.forEach((repo) => {
-      let form = {
-        "name": "web",
-        "active": true,
-        "events": [
-          "commit_comment"
-        ],
-        "config": {
-          "url": "http://devhub-.herokuapp.com/webhook/github",
-          "content_type": "json"
-        }
-      }
-      request({
-        url: repo.hooks_url,
-        method: 'POST',
-        headers: {
-          'Authorization': 'token ' + this.access_token,
-          'User-Agent': 'request',
-          'Content-Type': 'application/json'
-        },
-        json: form
-      }, function (err, res, body) {
-        if (!err && res.statusCode === 200) {
-          console.log(body)
-        } else {
-          console.log(err)
-        }
-      })
-    })
-  }
+  // createHooks () {
+  //   this.repos.forEach((repo) => {
+  //     let form = {
+  //       "name": "web",
+  //       "active": true,
+  //       "events": [
+  //         "commit_comment"
+  //       ],
+  //       "config": {
+  //         "url": "http://devhub-.herokuapp.com/webhook/github",
+  //         "content_type": "json"
+  //       }
+  //     }
+  //     request({
+  //       url: repo.hooks_url,
+  //       method: 'POST',
+  //       headers: {
+  //         'Authorization': 'token ' + this.access_token,
+  //         'User-Agent': 'request',
+  //         'Content-Type': 'application/json'
+  //       },
+  //       json: form
+  //     }, function (err, res, body) {
+  //       if (!err && res.statusCode === 200) {
+  //         console.log(body)
+  //       } else {
+  //         console.log(err)
+  //       }
+  //     })
+  //   })
+  // }
 
 }
 module.exports = Github

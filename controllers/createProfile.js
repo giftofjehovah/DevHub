@@ -12,7 +12,8 @@ function createProfile (req, res, next) {
         githubApi.getActivity.bind(githubApi),
         githubApi.getLongestStreak.bind(githubApi),
         githubApi.getLanguages.bind(githubApi),
-        githubApi.getRepoSummary.bind(githubApi)
+        githubApi.getRepoSummary.bind(githubApi),
+        githubApi.getEmails.bind(githubApi)
       ], save)
     })
   } else {
@@ -25,6 +26,7 @@ function createProfile (req, res, next) {
     req.user.data.longestStreak = result[2]
     req.user.data.languages = result[3]
     req.user.data.repos = result[4]
+    req.user.email = result[5]
     req.user.profiled = true
     req.user.save(function (err, user) {
       if (err) console.log(err)
