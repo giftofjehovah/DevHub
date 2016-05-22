@@ -13,7 +13,7 @@ A "LinkedIn" for Developers using the Github API with processed stats and data v
 - Materialize for CSS Styling
 
 ### Approach Taken
-- We wanted to display more meaningful data for Developers using raw data provided by the Github API. This would make it easier to gauge the Developer's experience and find Developers working on the same langugage/framework. 
+- The goal was to display more meaningful data for Developers using raw data provided by the Github API. This would make it easier to gauge the Developer's experience and find Developers working on the same langugage/framework. 
 - Data displayed include:
     - Most recent job and education details
     - Past month's commits
