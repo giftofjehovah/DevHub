@@ -3,7 +3,7 @@ A "LinkedIn" for Developers using the Github API with processed stats and data v
 
 ### Overview
 
-<img src="to_get_screenshot.png" width=600 height=360 >
+<img src="public/img/profile.png" width=600 height=360 >
 
 ### What was used
 - Github API (https://developer.github.com/v3/repos/statistics/)
