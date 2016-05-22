@@ -7,18 +7,18 @@ A "LinkedIn" for Developers using the Github API with processed stats and data v
 
 ### What was used
 - Github API (https://developer.github.com/v3/repos/statistics/)
-- Mongoose (database)
+- Mongoose
 - Express
 - Node.js
 - Materialize for CSS Styling
 
 ### Approach Taken
-- We wanted to display more meaningful data for developers using raw data provided by the Github API. This would make it easier to gauge the Developer's experience and find developers working on the same langugage/framework. 
+- We wanted to display more meaningful data for Developers using raw data provided by the Github API. This would make it easier to gauge the Developer's experience and find Developers working on the same langugage/framework. 
 - Data displayed include:
     - Most recent job and education details
     - Past month's commits
     - Summary of languages used across all repositories
-    - Star projects
+    - Display projects
 
 
 ### Usage Instructions
@@ -32,4 +32,4 @@ A "LinkedIn" for Developers using the Github API with processed stats and data v
     - Visitors to the site will be able to save their searches and results. 
     - Developers will be able to connect to each other. 
 - Other APIs
-    - Possiblity of adding on other APIs which provide more user details (e.g. job experience, education)
+    - Possiblity of adding on other APIs which could provide more user details (e.g. job experience, education)
