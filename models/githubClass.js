@@ -161,8 +161,7 @@ class Github {
             this.repoSummary.push(repo._id)
           })
           if (counter === this.repos.length) {
-            console.log('hi')
-            console.log(counter, this.repos.length)
+            console.log('chicken', counter, this.repos.length)
             cb(null, this.repoSummary)
           }
         } else {
