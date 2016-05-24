@@ -64,7 +64,7 @@ module.exports = function (passport) {
   passport.use('github', new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: 'https://devhub-.herokuapp/auth/github/callback'
+    callbackURL: 'https://devhub-.herokuapp.com/auth/github/callback'
   },
     function (access_token, refresh_token, profile, done) {
       console.log(profile)
