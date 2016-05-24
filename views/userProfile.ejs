@@ -110,7 +110,7 @@
 
 
     <div class="row cards">
-<% for (var i = 0; i < 3; i++){ %>
+<% for (var i = 0; i < user.data.repos.length; i++){ %>
         <div class="col s12 m6 l4">
           <div class="card l">
             <div class="card-image">
@@ -122,6 +122,7 @@
             </div>
           </div>
         </div>
+      <%  if(i==='2') break; %>
       <% } %>
 </div>
 
