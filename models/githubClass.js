@@ -159,11 +159,11 @@ class Github {
           mongoRepo.save((err, repo) => {
             if (err) throw err
             this.repoSummary.push(repo._id)
+            if (counter === this.repos.length) {
+              console.log('chicken', this.username, counter, this.repos.length)
+              cb(null, this.repoSummary)
+            }
           })
-          if (counter === this.repos.length) {
-            console.log('chicken', this.username, counter, this.repos.length)
-            cb(null, this.repoSummary)
-          }
         } else {
           cb(error)
           console.log('error')
