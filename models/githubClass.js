@@ -202,10 +202,9 @@ class Github {
               week4: week4
             }
             this.activity = activity
-            cb(false, this.activity)
+            return cb(false, this.activity)
           }
         } else {
-          console.log(error)
           cb(true)
         }
       })
