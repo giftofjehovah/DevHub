@@ -143,7 +143,6 @@ class Github {
 
       request.get(options, (error, response, body) => {
         if (!error && response.statusCode === 200) {
-          counter++
           let languages = []
           let repoLanguages = JSON.parse(body)
           for (var k in repoLanguages) {
@@ -157,6 +156,7 @@ class Github {
           }
           let mongoRepo = new Repo(repoSummary)
           mongoRepo.save((err, repo) => {
+            counter++
             if (err) throw err
             this.repoSummary.push(repo._id)
             if (counter === this.repos.length) {
