@@ -50,9 +50,9 @@ class Github {
     request.get(options, (error, response, body) => {
       if (!error && response.statusCode === 200) {
         this.email = JSON.parse(body)[0].email
-        cb(false, this.email)
+        cb(null, this.email)
       } else {
-        cb(true)
+        cb(error)
       }
     })
   }
@@ -61,7 +61,7 @@ class Github {
     this.repos.forEach((repo) => {
       this.rockStar += repo.stargazers_count
     })
-    cb(false, this.rockStar)
+    cb(null, this.rockStar)
   }
 
   getLanguages (cb) {
@@ -85,10 +85,10 @@ class Github {
           counter++
         } else {
           console.log('error')
-          return cb(true)
+          return cb(error)
         }
         if (counter === repos.length) {
-          cb(false, this.languages)
+          cb(null, this.languages)
         }
       })
     }
@@ -124,7 +124,7 @@ class Github {
       if (!error) {
         const $ = cheerio.load(html)
         this.longestStreak = $('.contrib-number').eq(1).text()
-        cb(false, this.longestStreak)
+        cb(null, this.longestStreak)
       }
     })
   }
@@ -161,10 +161,10 @@ class Github {
             this.repoSummary.push(repo._id)
           })
           if (counter === this.repos.length) {
-            cb(false, this.repoSummary)
+            cb(null, this.repoSummary)
           }
         } else {
-          cb(true)
+          cb(error)
           console.log('error')
         }
       })
@@ -203,10 +203,10 @@ class Github {
               week4: week4
             }
             this.activity = activity
-            return cb(false, this.activity)
+            return cb(null, this.activity)
           }
         } else {
-          cb(true)
+          cb(error)
         }
       })
     })
