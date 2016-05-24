@@ -15,6 +15,7 @@ function createProfile (req, res, next) {
         githubApi.getRepoSummary.bind(githubApi),
         githubApi.getEmails.bind(githubApi)
       ], save)
+      console.log('running')
     })
   } else {
     next()

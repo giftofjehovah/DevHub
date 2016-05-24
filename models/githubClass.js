@@ -31,6 +31,7 @@ class Github {
         let repos = JSON.parse(body)
         this.repos = repos
         cb(this.repos)
+        console.log(this.repos)
       } else {
         console.log('error')
       }
