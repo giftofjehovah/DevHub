@@ -31,7 +31,6 @@
 <div class="row">
 <div class="profile-stats col s12 center-align">
     <ul>
-
       <li><%= user.data.rockStar %><span>Stars</span></li>
       <li><%= user.data.longestStreak %><span>Longest Streak</span></li>
       <li><%= user.github.followers %><span>Followers</span></li>
@@ -45,17 +44,26 @@
       <div class="col s4">
         <h5 class="center-align">Most recent</h5>
     <ul>
-      <li>Company: <%= user.workExp.company %></li>
-      <li>Position: <%= user.workExp.position %></li>
-      <li>Course: <%= user.education.course %></li>
-      <li>School: <%= user.education.school %></li>
-      <li><a href = "/users/<%=user.github.username%>/edit">Edit</a></li>
+      <li><b>Company:</b></li>
+      <li><%= user.workExp.company %></li>
+      <br>
+      <li><b>Position:</b></li>
+      <li><%= user.workExp.position %></li>
+      <br>
+      <li><b>Course: </b></li>
+      <li><%= user.education.course %></li>
+      <br>
+      <li><b>School: </b></li>
+      <li><%= user.education.school %></li>
+      <br>
+      <br>
+      <li><a href = "/users/<%=user.github.username%>/edit" class="waves-effect waves-light btn"><i class="material-icons right">mode_edit</i>Edit</a></li>
     </ul>
       </div>
 
       <div class="col s4">
         <h5 class="center-align">Last month's commit activity</h5>
-        <div id="line" style="width: 400px; height: 350px; margin-left:0px">
+        <div id="line" style="width: 400px; height: 350px; display:block; margin:0 auto">
         </div>
         <script>
         var data = [
