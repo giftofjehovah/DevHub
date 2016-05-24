@@ -162,6 +162,7 @@ class Github {
           })
           if (counter === this.repos.length) {
             console.log('hi')
+            console.log(counter, this.repos.length)
             cb(null, this.repoSummary)
           }
         } else {
