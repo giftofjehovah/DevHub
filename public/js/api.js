@@ -1,6 +1,6 @@
 var baseUrl = 'https://devhub-.herokuapp.com/api/v1/'
 function setHeader (xhr) {
-  xhr.setRequestHeader('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im96eTgiLCJfaWQiOiI1NzBmZWMzYzA3OGI5NTAzMDA0NjhjZTUiLCJpYXQiOjE0NjA2ODc0ODd9.7ObTgz8cbst2HiVCbtHEk3GG76Fa5m_QtaUGHtNSbKA')
+  xhr.setRequestHeader('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im96eTgiLCJfaWQiOiI1NzBmZWMzYzA3OGI5NTAzMDA0NjhjZTUiLCJpYXQiOjE0NjA2ODc0ODd9')
 }
 
 $('.btn').on('click', function (event) {
